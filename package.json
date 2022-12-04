@@ -1,0 +1,31 @@
+{
+    "name": "common-coding-tools",
+    "version": "1.0.2",
+    "description": "A common code module for use in multiple npm packages",
+    "main": "src/index.js",
+    "files": [
+        "src/array.js",
+        "src/page2.js",
+        "src/page3.js"
+    ],
+    "scripts": {
+        "test": "jest"
+    },
+    "keywords": [
+        "common",
+        "codeing",
+        "tools",
+        "common hooks",
+        "javascript"
+    ],
+    "author": "PaneruVipin",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {},
+    "exports": {
+        ".": "./src/index.js",
+        "./array": "./src/array.js",
+        "./page2": "./src/page2.js",
+        "./page3": "./src/page3.js"
+    }
+}
