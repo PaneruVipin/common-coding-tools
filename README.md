@@ -1,6 +1,6 @@
 # common-coding-tools
 
-A brief description of the project and its purpose.
+While working with JavaScript and JavaScript Framework, many hooks have to be made which are common, so they are all present here in the same library, so use them and avoid time and code repetition.
 
 ## Getting Started
 ```javascript
@@ -34,13 +34,13 @@ console.log(results1);
 console.log(result2)
 // Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
 
-//Why this difference in output?
-//Because you have changed the array of object keys. The priority is decided according to the position of the key. 
-//For example, your object has three keys A, B and C. 
-//If you want to give first priority to B, second to c and third priority to A, then write like this
-//["B","A","C"]
+// Why this difference in output?
+// Because you have changed the array of object keys. The priority is decided according to the position of the key. 
+// For example, your object has three keys A, B and C. 
+// If you want to give first priority to B, second to C and third priority to A, then write like this
+// ["B","A","C"]
 
-const yourResult=search(yourArray,["B","A","C"],"your query")
+// const yourResult=search(yourArray,["B","A","C"],"your query")
 
 
 
