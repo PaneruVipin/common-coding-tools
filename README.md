@@ -41,6 +41,61 @@ console.log(result2)
 // ["B","A","C"]
 
 // const yourResult=search(yourArray,["B","A","C"],"your query")
+```
+
+Here is an example of how to use the `descending` function:
+```javascript
+var {descending} = require("common-coding-tools/array")
+
+const arr = [
+  {name: "vipin bhai", class: "vipin hello"},
+  {name: "bhole bhai", class: "vipin dghhhh"},
+  {name: "prem bhai", class: "singh hello"},
+  {name: "singh bhai", class: "vipin hello"},
+  {name: "vipin bhai", class: "vipin hello"},
+];
+
+// Sort the array in descending order by the name property
+const sortedArr = descending(arr, "name");
+
+console.log(sortedArr); 
+// [
+//   {name: "vipin bhai", class: "vipin hello"},
+//   {name: "vipin bhai", class: "vipin hello"},
+//   {name: "singh bhai", class: "vipin hello"},
+//   {name: "prem bhai", class: "singh hello"},
+//   {name: "bhole bhai", class: "vipin dghhhh"},
+// ]
+
+```
+other examples:
+```javascript
+var {descending} = require("common-coding-tools/array")
+
+const arr = [5, 2, 8, 1, 9];
+
+// Sort the array in descending order using the default comparison function
+const sortedArr = descending(arr);
+
+console.log(sortedArr);
+// [9, 8, 5, 2, 1]
+```
+
+Here is an example of how to use the `ascending` function:
+
+```javascript
+var {ascending} = require("common-coding-tools/array")
+
+const arr = ["a", "c", "d", "f", "b"];
+
+// Sort the array in ascending order using the default comparison function
+const sortedArr = ascending(arr);
+
+console.log(sortedArr);
+
+// ["a","b","c","d","f"]
+```
+
 
 
 
