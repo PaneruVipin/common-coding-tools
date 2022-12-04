@@ -65,8 +65,24 @@ const ascending = (arr, key) => {
   }
 };
 
+const arrayToObject = (arr, key) => {
+  let i = 0;
+  const object = arr?.reduce(
+    (a, b) => ({ ...a, [b?.[key] ? b?.[key] : ++i]: b }),
+    {}
+  );
+  return object;
+};
+
+const objectToArray = (obj) => {
+  const array = Object.keys(obj)?.map((key) => obj?.[key]);
+  return array;
+};
+
 module.exports = {
   search,
   descending,
   ascending,
+  arrayToObject,
+  objectToArray,
 };
