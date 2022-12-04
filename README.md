@@ -96,6 +96,45 @@ console.log(sortedArr);
 // ["a","b","c","d","f"]
 ```
 
+Here is an example of how to use the `converter` function:
+
+```javascript
+var {arrayToObject,ObjectToArray} = require("common-coding-tools/array")
+
+// Convert the array into an object using the name property as the keys
+const object = arrayToObject(arr, "name");
+
+console.log(object);
+// {
+//   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
+//   "bhole bhai": {name: "bhole bhai", class: "vipin dghhhh"},
+//   "prem bhai": {name: "prem bhai", class: "singh hello"},
+//   "singh bhai": {name: "singh bhai", class: "vipin hello"},
+//   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
+// }
+
+//When you do not use the second argument, the output will be something like
+// {
+//   "1": {name: "vipin bhai", class: "vipin hello"},
+//   "2": {name: "bhole bhai", class: "vipin dghhhh"},
+//   "3": {name: "prem bhai", class: "singh hello"},
+//   "4": {name: "singh bhai", class: "vipin hello"},
+//   "5": {name: "vipin bhai", class: "vipin hello"},
+// }
+
+const array = objectToArray(object);
+console.log(array);
+// [
+//     {name: "vipin bhai", class: "vipin hello"},
+//     {name: "bhole bhai", class: "vipin dghhhh"},
+//     {name: "prem bhai", class: "singh hello"},
+//     {name: "singh bhai", class: "vipin hello"},
+//     {name: "vipin bhai", class: "vipin hello"},
+// ]
+```
+
+
+
 
 
 
