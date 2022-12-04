@@ -1,6 +1,5 @@
 function search(arr, keys, query) {
   let results = [];
-
   arr?.forEach((obj) => {
     keys?.forEach((key, i) => {
       let wet = 0;
@@ -41,4 +40,3 @@ function search(arr, keys, query) {
 module.exports = {
   search,
 };
-
