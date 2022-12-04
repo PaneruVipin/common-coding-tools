@@ -45,7 +45,7 @@ console.log(result2)
 
 Here is an example of how to use the `descending` function:
 ```javascript
-var {descending} = require("common-coding-tools/array")
+import {descending} from "common-coding-tools/array"
 
 const arr = [
   {name: "vipin bhai", class: "vipin hello"},
@@ -70,7 +70,7 @@ console.log(sortedArr);
 ```
 other examples:
 ```javascript
-var {descending} = require("common-coding-tools/array")
+import {descending} from "common-coding-tools/array"
 
 const arr = [5, 2, 8, 1, 9];
 
@@ -84,7 +84,7 @@ console.log(sortedArr);
 Here is an example of how to use the `ascending` function:
 
 ```javascript
-var {ascending} = require("common-coding-tools/array")
+import {ascending} from "common-coding-tools/array"
 
 const arr = ["a", "c", "d", "f", "b"];
 
