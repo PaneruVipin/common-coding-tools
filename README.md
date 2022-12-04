@@ -3,8 +3,9 @@
 A brief description of the project and its purpose.
 
 ## Getting Started
+```javascript
+npm install common-coding-tools
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
