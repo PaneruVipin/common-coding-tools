@@ -5,6 +5,7 @@ A brief description of the project and its purpose.
 ## Getting Started
 ```javascript
 npm install common-coding-tools
+```
 
 
 ### Prerequisites
