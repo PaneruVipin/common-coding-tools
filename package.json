@@ -1,6 +1,6 @@
 {
     "name": "common-coding-tools",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A common code module for use in multiple npm packages",
     "main": "src/index.js",
     "files": [
