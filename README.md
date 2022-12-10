@@ -46,15 +46,6 @@ console.log(result2)
 Here is an example of how to use the `descending` function:
 ```javascript
 import {descending} from "common-coding-tools/array"
-
-const arr = [
-  {name: "vipin bhai", class: "vipin hello"},
-  {name: "bhole bhai", class: "vipin dghhhh"},
-  {name: "prem bhai", class: "singh hello"},
-  {name: "singh bhai", class: "vipin hello"},
-  {name: "vipin bhai", class: "vipin hello"},
-];
-
 // Sort the array in descending order by the name property
 const sortedArr = descending(arr, "name");
 
