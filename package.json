@@ -5,15 +5,14 @@
     "main": "src/index.js",
     "files": [
         "src/array.js",
-        "src/page2.js",
-        "src/page3.js"
+        "src/string.js"
     ],
     "scripts": {
         "test": "jest"
     },
     "keywords": [
         "common",
-        "codeing",
+        "coding",
         "tools",
         "common hooks",
         "javascript"
@@ -25,7 +24,6 @@
     "exports": {
         ".": "./src/index.js",
         "./array": "./src/array.js",
-        "./page2": "./src/page2.js",
-        "./page3": "./src/page3.js"
+        "./string": "./src/string.js"
     }
 }
