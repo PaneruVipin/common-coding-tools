@@ -3,7 +3,7 @@ const lowerCase = () => {
     const subStrs = str.split(" ");
     const lowerCase = subStrs
       .map((subStr) => {
-        return subStr.charAt(0).toLowerCase() + subStr.slice(1);
+        return subStr.charAt(0).toLowerCase() + subStr.slice(1).toUpperCase();
       })
       .join(" ");
     return lowerCase;
@@ -20,7 +20,7 @@ const upperCase = () => {
     const subStrs = str.split(" ");
     const upperCase = subStrs
       .map((subStr) => {
-        return subStr.charAt(0).toUpperCase() + subStr.slice(1);
+        return subStr.charAt(0).toUpperCase() + subStr.slice(1).toLowerCase();
       })
       .join(" ");
     return upperCase;
