@@ -1,21 +1,22 @@
 const search = (arr, keys, query) => {
+  const newQuery=query.toLowerCase()
   let results = [];
   arr?.forEach((obj) => {
     keys?.forEach((key, i) => {
       let wet = 0;
       if (
-        obj?.[key]?.includes(query) ||
-        obj[key]?.split(" ")?.some((ch) => query?.includes(ch)) ||
+        obj?.[key]?.toLowerCase()?.includes(newQuery) ||
+        obj[key]?.split(" ")?.some((ch) => newQuery?.includes(ch.toLowerCase())) ||
         obj?.[key]
           .replace(/ /g, "")
           ?.match(/.{1,4}/g)
           .filter((str) => str.length > 2)
-          ?.some((ch) => query?.includes(ch))
+          ?.some((ch) => newQuery?.includes(ch.toLowerCase()))
       ) {
-        if (obj?.[key]?.includes(query)) {
+        if (obj?.[key]?.toLowerCase()?.includes(newQuery)) {
           wet += 10 - i;
         }
-        if (obj?.[key]?.split(" ")?.some((ch) => query?.includes(ch))) {
+        if (obj?.[key]?.split(" ")?.some((ch) => newQuery?.includes(ch?.toLowerCase()))) {
           wet += 5 - i;
         }
         if (
@@ -23,7 +24,7 @@ const search = (arr, keys, query) => {
             .replace(/ /g, "")
             ?.match(/.{1,4}/g)
             .filter((str) => str.length > 2)
-            ?.some((ch) => query?.includes(ch))
+            ?.some((ch) => newQuery?.includes(ch.toLowerCase()))
         ) {
           wet += 1 - i;
         }
