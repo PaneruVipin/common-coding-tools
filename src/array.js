@@ -1,30 +1,47 @@
 const search = (arr, keys, query) => {
-  const newQuery=query.toLowerCase()
+  const newQuery = query.toLowerCase();
   let results = [];
   arr?.forEach((obj) => {
     keys?.forEach((key, i) => {
       let wet = 0;
+      const compareStr = obj?.[key]?.toLowerCase();
       if (
-        obj?.[key]?.toLowerCase()?.includes(newQuery) ||
-        obj[key]?.split(" ")?.some((ch) => newQuery?.includes(ch.toLowerCase())) ||
-        obj?.[key]
-          .replace(/ /g, "")
+        compareStr?.includes(newQuery) ||
+        newQuery?.includes(compareStr) ||
+        newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
+        compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch)) ||
+        compareStr
+          ?.replace(/ /g, "")
           ?.match(/.{1,4}/g)
           .filter((str) => str.length > 2)
-          ?.some((ch) => newQuery?.includes(ch.toLowerCase()))
+          ?.some((ch) => newQuery?.includes(ch)) ||
+        newQuery
+          ?.replace(/ /g, "")
+          ?.match(/.{1,4}/g)
+          .filter((str) => str.length > 2)
+          ?.some((ch) => compareStr?.includes(ch))
       ) {
         if (obj?.[key]?.toLowerCase()?.includes(newQuery)) {
           wet += 10 - i;
         }
-        if (obj?.[key]?.split(" ")?.some((ch) => newQuery?.includes(ch?.toLowerCase()))) {
+        if (
+        newQuery?.includes(compareStr) ||
+        newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
+        compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch))
+        ) {
           wet += 5 - i;
         }
         if (
-          obj?.[key]
-            .replace(/ /g, "")
+          compareStr
+            ?.replace(/ /g, "")
             ?.match(/.{1,4}/g)
             .filter((str) => str.length > 2)
-            ?.some((ch) => newQuery?.includes(ch.toLowerCase()))
+            ?.some((ch) => newQuery?.includes(ch)) ||
+          newQuery
+            ?.replace(/ /g, "")
+            ?.match(/.{1,4}/g)
+            .filter((str) => str.length > 2)
+            ?.some((ch) => compareStr?.includes(ch))
         ) {
           wet += 1 - i;
         }
