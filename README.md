@@ -71,7 +71,7 @@ const array = objectToArray(object);
 //     {name: "vipin bhai", class: "vipin hello"},
 // ]
 ```
-other examples:
+Other examples:
 ```javascript
 import { ascending, descending } from "common-coding-tools/array"
 
