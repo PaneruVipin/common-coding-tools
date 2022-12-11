@@ -24,6 +24,9 @@ const search = (arr, keys, query) => {
           .filter((str) => str.length > 2)
           ?.some((ch) => compareStr?.includes(ch))
       ) {
+        if(compareStr?.startsWith(newQuery)){
+          wet += 20 - i;
+        }
         if (obj?.[key]?.toLowerCase()?.includes(newQuery)) {
           wet += 10 - i;
         }
