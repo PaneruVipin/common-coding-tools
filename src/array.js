@@ -1,6 +1,9 @@
 const search = (arr, keys, query) => {
-  const newQuery = query.toLowerCase();
   let results = [];
+  if(!query){
+    console.error("provide a query")
+  }{
+  const newQuery = query.toLowerCase();
   arr?.forEach((obj) => {
     keys?.forEach((key, i) => {
       let wet = 0;
@@ -49,6 +52,7 @@ const search = (arr, keys, query) => {
       }
     });
   });
+}
   const newResults = results
     ?.sort((a, b) => b?.wet - a?.wet)
     ?.map((r) => r?.obj);
