@@ -17,7 +17,7 @@ Here is an example of how to use the `search` function:
 ```javascript
 const {search} = require("common-coding-tools/array");
 //OR
-import {search} from "common-coding-tools/array"
+import { search, descending } from "common-coding-tools/array"
 
 const arr = [
   {name: "vipin bhai", class: "vipin hello"},
@@ -41,12 +41,7 @@ console.log(result2)
 // ["B","A","C"]
 
 // const yourResult=search(yourArray,["B","A","C"],"your query")
-```
 
-Here is an example of how to use the `descending` function:
-```javascript
-import {descending} from "common-coding-tools/array"
-// Sort the array in descending order by the name property
 const sortedArr = descending(arr, "name");
 
 console.log(sortedArr); 
@@ -57,8 +52,8 @@ console.log(sortedArr);
 //   {name: "prem bhai", class: "singh hello"},
 //   {name: "bhole bhai", class: "vipin dghhhh"},
 // ]
-
 ```
+
 other examples:
 ```javascript
 import {descending} from "common-coding-tools/array"
