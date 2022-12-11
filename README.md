@@ -10,14 +10,14 @@ npm install common-coding-tools
 
 ### Usage
 
-The `search` function takes three arguments: the array to search, an array of object keys to search, and the search query. It returns an array of objects that match the search query.
+#### Example "common-coding-tools/array"
+
+This array page is a collection of common utility functions that can be used while working with JavaScript and JavaScript frameworks. The library contains functions for working with arrays, such as `search`, `descending`, and `ascending`, as well as functions for converting between arrays and objects. To use the library, you can install it via npm by running `npm install common-coding-tools`. You can then import or require individual functions from the library to use in your code. For example, you can use the search function to search an array of objects for specific values, the descending function to sort an array in descending order, and the ascending function to sort an array in ascending order. Additionally, the `arrayToObject` and `ObjectToArray` functions can be used to convert between arrays and objects.
 
 Here is an example of how to use the `search` function:
 
 ```javascript
-const {search} = require("common-coding-tools/array");
-//OR
-import {search} from "common-coding-tools/array"
+import { search, descending, arrayToObject, objectToArray } from "common-coding-tools/array"
 
 const arr = [
   {name: "vipin bhai", class: "vipin hello"},
@@ -26,31 +26,19 @@ const arr = [
   {name: "singh bhai", class: "vipin hello"},
   {name: "vipin bhai", class: "vipin hello"},
 ];
-
 const results1 = search(arr, ["name", "class"], "singh");
-const results2 = search(arr, ["class", "name"], "singh");
-console.log(results1);
 // Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
-console.log(result2)
+const results2 = search(arr, ["class", "name"], "singh");
 // Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
 
 // Why this difference in output?
 // Because you have changed the array of object keys. The priority is decided according to the position of the key. 
 // For example, your object has three keys A, B and C. 
 // If you want to give first priority to B, second to C and third priority to A, then write like this
-// ["B","A","C"]
-
 // const yourResult=search(yourArray,["B","A","C"],"your query")
-```
 
-Here is an example of how to use the `descending` function:
-```javascript
-import {descending} from "common-coding-tools/array"
-// Sort the array in descending order by the name property
 const sortedArr = descending(arr, "name");
-
-console.log(sortedArr); 
-// [
+//output: [
 //   {name: "vipin bhai", class: "vipin hello"},
 //   {name: "vipin bhai", class: "vipin hello"},
 //   {name: "singh bhai", class: "vipin hello"},
@@ -58,44 +46,9 @@ console.log(sortedArr);
 //   {name: "bhole bhai", class: "vipin dghhhh"},
 // ]
 
-```
-other examples:
-```javascript
-import {descending} from "common-coding-tools/array"
-
-const arr = [5, 2, 8, 1, 9];
-
-// Sort the array in descending order using the default comparison function
-const sortedArr = descending(arr);
-
-console.log(sortedArr);
-// [9, 8, 5, 2, 1]
-```
-
-Here is an example of how to use the `ascending` function:
-
-```javascript
-import {ascending} from "common-coding-tools/array"
-
-const arr = ["a", "c", "d", "f", "b"];
-
-// Sort the array in ascending order using the default comparison function
-const sortedArr = ascending(arr);
-
-console.log(sortedArr);
-
-// ["a","b","c","d","f"]
-```
-
-Here is an example of how to use the `converter` function:
-
-```javascript
-var {arrayToObject,ObjectToArray} = require("common-coding-tools/array")
-
 // Convert the array into an object using the name property as the keys
-const object = arrayToObject(arr, "name");
 
-console.log(object);
+const object = arrayToObject(arr, "name"); //output
 // {
 //   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
 //   "bhole bhai": {name: "bhole bhai", class: "vipin dghhhh"},
@@ -114,8 +67,7 @@ console.log(object);
 // }
 
 const array = objectToArray(object);
-console.log(array);
-// [
+//output: [
 //     {name: "vipin bhai", class: "vipin hello"},
 //     {name: "bhole bhai", class: "vipin dghhhh"},
 //     {name: "prem bhai", class: "singh hello"},
@@ -123,6 +75,19 @@ console.log(array);
 //     {name: "vipin bhai", class: "vipin hello"},
 // ]
 ```
+Other examples:
+```javascript
+import { ascending, descending } from "common-coding-tools/array"
+
+const arr1 = [5, 2, 8, 1, 9];
+// Sort the array in descending order using the default comparison function
+const sortedArr = descending(arr1); // [9, 8, 5, 2, 1]
+
+const arr2 = ["a", "c", "d", "f", "b"];
+// Sort the array in ascending order using the default comparison function
+const sortedArr = ascending(arr2); // ["a","b","c","d","f"]
+```
+
 
 
 
