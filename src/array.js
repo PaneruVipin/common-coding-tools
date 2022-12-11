@@ -2,7 +2,7 @@ const search = (arr, keys, query) => {
   let results = [];
   if(!query){
     console.error("provide a query")
-  }{
+  }else{
   const newQuery = query.toLowerCase();
   arr?.forEach((obj) => {
     keys?.forEach((key, i) => {
