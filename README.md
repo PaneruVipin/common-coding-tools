@@ -45,7 +45,9 @@ const sortedArr = descending(arr, "name");
 //   {name: "prem bhai", class: "singh hello"},
 //   {name: "bhole bhai", class: "vipin dghhhh"},
 // ]
+
 // Convert the array into an object using the name property as the keys
+
 const object = arrayToObject(arr, "name"); //output
 // {
 //   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
@@ -54,6 +56,7 @@ const object = arrayToObject(arr, "name"); //output
 //   "singh bhai": {name: "singh bhai", class: "vipin hello"},
 //   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
 // }
+
 //When you do not use the second argument, the output will be something like
 // {
 //   "1": {name: "vipin bhai", class: "vipin hello"},
@@ -62,6 +65,7 @@ const object = arrayToObject(arr, "name"); //output
 //   "4": {name: "singh bhai", class: "vipin hello"},
 //   "5": {name: "vipin bhai", class: "vipin hello"},
 // }
+
 const array = objectToArray(object);
 //output: [
 //     {name: "vipin bhai", class: "vipin hello"},
