@@ -150,3 +150,17 @@ const range = (value, feild, ruleValue) => {
   }
   return data;
 };
+
+const clean=(value,feild)=>{
+ const data={}
+  if(value){
+    const cleandvalues=value?.split(" ")?.map((str)=>{
+        const substrs=str?.split('')?.filter((subStr)=>{
+            return subStr !=false
+        })
+        return substrs?.join('')
+    })
+    data.value=cleandvalues?.join(" ")
+  }
+  return data
+}
