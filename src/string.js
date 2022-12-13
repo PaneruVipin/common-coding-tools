@@ -25,7 +25,7 @@ const upperCase = () => {
       .join(" ");
     return upperCase;
   };
-  const all = () => {
+  const all = (str) => {
     const newStr = str.toUpperCase();
     return newStr;
   };

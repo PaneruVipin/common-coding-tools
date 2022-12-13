@@ -1,3 +1,5 @@
+const { upperCase, lowerCase } = require("../../string");
+
 const required = (value, feild) => {
   const data = {};
   if (value) {
@@ -138,7 +140,7 @@ const max = (value, feild, ruleValue) => {
 const range = (value, feild, ruleValue) => {
   const data = {};
   const ranges = ruleValue.split("-");
-  if (+value > +ranges?.[0] && +value < +ranges?.[1]) {
+  if (+value >= +ranges?.[0] && +value <= +ranges?.[1]) {
     data.value = value;
   } else if (!value) {
     return;
@@ -151,16 +153,79 @@ const range = (value, feild, ruleValue) => {
   return data;
 };
 
-const clean=(value,feild)=>{
- const data={}
-  if(value){
-    const cleandvalues=value?.split(" ")?.map((str)=>{
-        const substrs=str?.split('')?.filter((subStr)=>{
-            return subStr !=false
-        })
-        return substrs?.join('')
-    })
-    data.value=cleandvalues?.join(" ")
+const trim = (value) => {
+  const data = {};
+  if (value) {
+    const cleandvalues = value
+      ?.split(" ")
+      .filter((str) => str != false)
+      ?.map((str) => {
+        const substrs = str?.split("")?.filter((subStr) => {
+          return subStr != false;
+        });
+        return substrs?.join("");
+      });
+    data.value = cleandvalues?.join(" ");
   }
-  return data
-}
+  return data;
+};
+
+const allLowerCase = (value) => {
+  const data = {};
+  if (typeof value != "string") {
+    data["value"] = value;
+  } else if (value) {
+    data["value"] = value.toLowerCase();
+  }
+  return data;
+};
+
+const allUpperCase = (value) => {
+  const data = {};
+  if (typeof value != "string") {
+    data["value"] = value;
+  } else if (value) {
+    data["value"] = value.toUpperCase();
+  }
+  return data;
+};
+
+const firstCharacterUpperCase = (value) => {
+  const data = {};
+  if (typeof value != "string") {
+    data["value"] = value;
+  } else if (value) {
+    data["value"] = upperCase().firstCharacter(value);
+  }
+  return data;
+};
+
+const firstCharacterLowerCase = (value) => {
+  const data = {};
+  if (typeof value != "string") {
+    data["value"] = value;
+  } else if (value) {
+    data["value"] = lowerCase().firstCharacter(value);
+  }
+  return data;
+};
+
+const ruleHandlers = {
+  required,
+  firstCharacterLowerCase,
+  firstCharacterUpperCase,
+  allUpperCase,
+  allLowerCase,
+  trim,
+  range,
+  max,
+  min,
+  maxLength,
+  minLength,
+  url,
+  email,
+  number,
+  string,
+};
+
+module.exports=ruleHandlers
