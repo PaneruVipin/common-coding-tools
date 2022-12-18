@@ -1,6 +1,6 @@
 # common-coding-tools/array
 
-While working with JavaScript and JavaScript Framework, many hooks have to be made which are common, so they are all present here in the same library, so use them and avoid time and code repetition.
+There are common functions related to data in array page, by which you can easily implement and clean the data.
 
 ## Getting Started
 ```javascript
