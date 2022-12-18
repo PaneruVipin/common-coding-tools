@@ -11,9 +11,9 @@ npm install common-coding-tools
 
 ### Usage
 ```javascript
-const {search} = require("common-coding-tools/array");
+const { search, descending, ascending, arrayToObject, ObjectToArray } = require("common-coding-tools/array");
 //OR
-import {search} from "common-coding-tools/array"
+import { search, descending, ascending, arrayToObject, ObjectToArray } from "common-coding-tools/array"
 ```
 
 The `search` function takes three arguments: the array to search, an array of object keys to search, and the search query. It returns an array of objects that match the search query.
@@ -47,7 +47,6 @@ const results2 = search(arr, ["class", "name"], "singh");
 
 Here is an example of how to use the `descending` function:
 ```javascript
-import {descending} from "common-coding-tools/array"
 // Sort the array in descending order by the name property
 const sortedArr = descending(arr, "name"); 
 // [
@@ -61,14 +60,11 @@ const sortedArr = descending(arr, "name");
 ```
 other examples:
 ```javascript
-import {descending} from "common-coding-tools/array"
 
 const arr = [5, 2, 8, 1, 9];
 
 // Sort the array in descending order using the default comparison function
 const sortedArr = descending(arr);
-
-console.log(sortedArr);
 // [9, 8, 5, 2, 1]
 ```
 
@@ -87,12 +83,9 @@ const sortedArr = ascending(arr);
 Here is an example of how to use the `converter` function:
 
 ```javascript
-var {arrayToObject,ObjectToArray} = require("common-coding-tools/array")
 
 // Convert the array into an object using the name property as the keys
 const object = arrayToObject(arr, "name");
-
-console.log(object);
 // {
 //   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
 //   "bhole bhai": {name: "bhole bhai", class: "vipin dghhhh"},
