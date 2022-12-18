@@ -4,8 +4,7 @@
     "description": "A common code module for use in multiple npm packages",
     "main": "src/index.js",
     "files": [
-        "src/array.js",
-        "src/string.js"
+        "docs"
     ],
     "scripts": {
         "test": "jest"
