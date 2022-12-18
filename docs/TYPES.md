@@ -28,6 +28,6 @@ const type4 = type(true) //output: "boolean"
 
 ```
 
-Here is an example of how to use the / 
-`isString` `isNumber` `isObject` `isBoolean` `isEmail` and `isUrl` / 
+Here is an example of how to use the \
+`isString` `isNumber` `isObject` `isBoolean` `isEmail` and `isUrl` \
 functions:
