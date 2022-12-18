@@ -1,6 +1,5 @@
 ## common-coding-tools/array
-
-There are common functions related to data in array page, by which you can easily implement and clean the data.
+This array page is a collection of common utility functions that can be used while working with JavaScript and JavaScript frameworks. The library contains functions for working with arrays, such as search, descending, and ascending, as well as functions for converting between arrays and objects. To use the library, you can install it via npm by running npm install common-coding-tools. You can then import or require individual functions from the library to use in your code. For example, you can use the search function to search an array of objects for specific values, the descending function to sort an array in descending order, and the ascending function to sort an array in ascending order. Additionally, the arrayToObject and ObjectToArray functions can be used to convert between arrays and objects.
 
 ### Usage
 Available Functions:
