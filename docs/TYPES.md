@@ -28,6 +28,4 @@ const type4 = type(true) //output: "boolean"
 
 ```
 
-Here is an example of how to use the 
-`isString` `isNumber` `isObject` `isBoolean` `isEmail` and `isUrl` 
-functions:
+Here is an example of how to use the \n`isString` `isNumber` `isObject` `isBoolean` `isEmail` and `isUrl` \nfunctions:
