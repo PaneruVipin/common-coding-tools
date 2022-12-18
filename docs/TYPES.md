@@ -15,7 +15,7 @@ type
 } from "common-coding-tools/types"
 ```
 
-example for `type` function:
+Here is an example of how to use the `type` function:
 ```javascript
 const type1 = type({ name: "vipin" }) //output: "object"
 
@@ -27,3 +27,4 @@ const type4 = type(true) //output: "boolean"
 
 ```
 
+Here is an example of how to use the `isString` `isNumber` `isObject` `isBoolean` `isEmail` and `isUrl` functions:
