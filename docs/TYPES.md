@@ -42,6 +42,8 @@ console.log( isObject({ name: "vipin", email: "vipin@vipin.in" })) //true
 console.log( isObject([ "vipin", "vipin@vipin.in" ]))   //false
 
 console.log( isArray({ name: "vipin", email: "vipin@vipin.in" })) //false
-console.log( isArray([ "vipin", "vipin@vipin.in" ]))   //false
+console.log( isArray([ "vipin", "vipin@vipin.in" ]))   //true
 
+console.log( isUrl("vipin@vipin.in")) //false
+console.log( isUrl("https:paneruvipin.com"))   //true
 ```
