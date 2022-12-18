@@ -15,4 +15,4 @@ We have divided the first common-coding-tools into 4 pages based on their differ
 - [Data Fitlerization](docs/ARRAY.md)    Methods: `search` `descending` `ascending` `arrayToObject` `ObjectToArray`
 - [Data Validation](docs/VALIDATE.md)
 - [Type Checking](docs/TYPES.md)        Methods: `isString` `isNumber` `isObject` `isArray` `isBoolean` `isEmail` `isUrl` `type`
-- [String Methods](docs/STRING.md)
+- [String Methods](docs/STRING.md)      Methods: `lowerCase` `upperCase`
