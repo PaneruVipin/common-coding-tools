@@ -11,3 +11,5 @@ npm install common-coding-tools
 
 ### Usage
 We have divided common-coding-Tools into 4 pages based on their different categories so that there is no problem in using it.
+
+[1. /array]("doc/ARRAY.md")
