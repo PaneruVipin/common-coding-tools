@@ -13,7 +13,8 @@ isEmail,
 isUrl,
 type
 } from "common-coding-tools/types"
-``
+```
+
 example for `type` function:
 ```javascript
 const type1 = type({ name: "vipin" }) //output: "object"
