@@ -23,6 +23,8 @@
     "exports": {
         ".": "./src/index.js",
         "./array": "./src/array.js",
-        "./string": "./src/string.js"
+        "./string": "./src/string.js",
+        "./validation": "./src/validation.js",
+        "./types": "./src/types.js"
     }
 }

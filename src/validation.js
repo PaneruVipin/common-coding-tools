@@ -32,9 +32,9 @@ const validation = (body, rules) => {
     data[key] = returnedValue;
   });
   if (!errors.length) {
-    return data;
+    return {data};
   } else {
-    return errors;
+    return {errors};
   }
 };
 
