@@ -7,6 +7,32 @@ Mostly used in API development, the work of validating the request.
 import { validation } from "common-coding-tools/validation"
 ```
 
+How to use in Node.js project:
+```javascript
+import {validation} from "common-coding-tools/validation"
+
+const signupValidator={
+       name: "string | required",
+       email: "string | required | email | trim",
+       password: "string | minLength: 8 | maxLength: 16",
+       age:"number | range: 20-30"
+}
+
+router.post("/signup", (req,res,next)=>{
+const data= validation(req.body, signupvalidator)
+
+if(data?.errors){
+const errors=data.errors
+// use errors
+}else{
+const validatedData=data.data
+// use validatedData
+// write your code here
+}
+})
+```
+
+
 Here is an example of how to use the `validation` function:
 ```javascript
 // Example - validation rule
@@ -70,3 +96,4 @@ const validate5 = validation(data5, validator)
 //       password: "12345678",
 //      email: "vipin@vipin.in",
 //   }}
+```
