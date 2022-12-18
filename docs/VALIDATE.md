@@ -44,29 +44,29 @@ const data5 = {
       email: "vipin@vipin.in",
 }
 const validate1 = validation(data1, validator)
-//{ errors: [
-  {feild: "email", message: "email is required feild"}
-  {feild: "password", message: "password is to short, minumun legth is 8"}
-]}
+// { errors: [
+//    {feild: "email", message: "email is required feild"}
+//     {feild: "password", message: "password is to short, minumun legth is 8"}
+//  ]}
 
 const validate2 = validation(data2, validator)
-//{ errors: [
-  {feild: "email", message: "email must be a valid email"}
-]}
+//  { errors: [
+//     {feild: "email", message: "email must be a valid email"}
+//  ]}
 
 const validate3  =validation(data3, validator)
-//{ errors: [
-  {feild: "age", message: "age must be a number"}
-]}
+// { errors: [
+//     {feild: "age", message: "age must be a number"}
+//  ]}
 
 const validate4 = validation(data4, validator)
-//{ errors: [
-  {feild: "age", message: "age may be in the range of 20 to 30"}
-]}
+//  { errors: [
+//     {feild: "age", message: "age may be in the range of 20 to 30"}
+//  ]}
 
 const validate5 = validation(data5, validator)
-//{ data: {
-      name: "vipin",
-      password: "12345678",
-      email: "vipin@vipin.in",
-}}
+//  { data: {
+//       name: "vipin",
+//       password: "12345678",
+//      email: "vipin@vipin.in",
+//   }}
