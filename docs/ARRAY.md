@@ -1,27 +1,23 @@
-# common-coding-tools/array
+## common-coding-tools/array
 
 There are common functions related to data in array page, by which you can easily implement and clean the data.
 
-## Getting Started
-```javascript
-npm install common-coding-tools
-
-```
-
-
 ### Usage
+Available Functions:
 ```javascript
-const { search, descending, ascending, arrayToObject, ObjectToArray } = require("common-coding-tools/array");
-//OR
-import { search, descending, ascending, arrayToObject, ObjectToArray } from "common-coding-tools/array"
+import { 
+search,
+descending,
+ascending,
+arrayToObject,
+ObjectToArray
+} from "common-coding-tools/array"
 ```
 
 The `search` function takes three arguments: the array to search, an array of object keys to search, and the search query. It returns an array of objects that match the search query.
 
 Here is an example of how to use the `search` function:
-
 ```javascript
-
 const arr = [
   {name: "vipin bhai", class: "vipin hello"},
   {name: "bhole bhai", class: "vipin dghhhh"},
@@ -71,8 +67,6 @@ const sortedArr = descending(arr);
 Here is an example of how to use the `ascending` function:
 
 ```javascript
-import {ascending} from "common-coding-tools/array"
-
 const arr = ["a", "c", "d", "f", "b"];
 
 // Sort the array in ascending order using the default comparison function
