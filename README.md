@@ -12,7 +12,7 @@ npm install common-coding-tools
 ### Usage
 We have divided common-coding-Tools into 4 pages based on their different categories so that there is no problem in using it.
 
-1. [Data Fitlerization --> /array](docs/ARRAY.md)
+1. [Data Fitlerization](docs/ARRAY.md)     -->
 2. [Data Validation --> /validation](docs/ARRAY.md)
 3. [Type Checking -->  /types](docs/ARRAY.md)
 4. [String Methods --> /string](docs/ARRAY.md)
