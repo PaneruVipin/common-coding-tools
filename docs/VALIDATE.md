@@ -46,7 +46,7 @@ const data5 = {
 const validate1 = validation(data1, validator)
 // { errors: [
 //    {feild: "email", message: "email is required feild"}
-//     {feild: "password", message: "password is to short, minumun legth is 8"}
+//     {feild: "password", message: "password length is to short, minimium length is 8"}
 //  ]}
 
 const validate2 = validation(data2, validator)
