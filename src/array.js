@@ -1,43 +1,18 @@
 const search = (arr, keys, query) => {
   let results = [];
-  if(!query){
-    console.error("provide a query")
-  }else{
-  const newQuery = query.toLowerCase();
-  arr?.forEach((obj) => {
-    keys?.forEach((key, i) => {
-      let wet = 0;
-      const compareStr = obj?.[key]?.toLowerCase();
-      if (
-        compareStr?.includes(newQuery) ||
-        newQuery?.includes(compareStr) ||
-        newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
-        compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch)) ||
-        compareStr
-          ?.replace(/ /g, "")
-          ?.match(/.{1,4}/g)
-          .filter((str) => str.length > 2)
-          ?.some((ch) => newQuery?.includes(ch)) ||
-        newQuery
-          ?.replace(/ /g, "")
-          ?.match(/.{1,4}/g)
-          .filter((str) => str.length > 2)
-          ?.some((ch) => compareStr?.includes(ch))
-      ) {
-        if(compareStr?.startsWith(newQuery)){
-          wet += 20 - i;
-        }
-        if (obj?.[key]?.toLowerCase()?.includes(newQuery)) {
-          wet += 10 - i;
-        }
+  if (!query) {
+    console.error("provide a query");
+  } else {
+    const newQuery = query.toLowerCase();
+    arr?.forEach((obj) => {
+      keys?.forEach((key, i) => {
+        let wet = 0;
+        const compareStr = obj?.[key]?.toLowerCase();
         if (
-        newQuery?.includes(compareStr) ||
-        newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
-        compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch))
-        ) {
-          wet += 5 - i;
-        }
-        if (
+          compareStr?.includes(newQuery) ||
+          newQuery?.includes(compareStr) ||
+          newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
+          compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch)) ||
           compareStr
             ?.replace(/ /g, "")
             ?.match(/.{1,4}/g)
@@ -49,13 +24,38 @@ const search = (arr, keys, query) => {
             .filter((str) => str.length > 2)
             ?.some((ch) => compareStr?.includes(ch))
         ) {
-          wet += 1 - i;
+          if (compareStr?.startsWith(newQuery)) {
+            wet += 20 - i;
+          }
+          if (obj?.[key]?.toLowerCase()?.includes(newQuery)) {
+            wet += 10 - i;
+          }
+          if (
+            newQuery?.includes(compareStr) ||
+            newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
+            compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch))
+          ) {
+            wet += 5 - i;
+          }
+          if (
+            compareStr
+              ?.replace(/ /g, "")
+              ?.match(/.{1,4}/g)
+              .filter((str) => str.length > 2)
+              ?.some((ch) => newQuery?.includes(ch)) ||
+            newQuery
+              ?.replace(/ /g, "")
+              ?.match(/.{1,4}/g)
+              .filter((str) => str.length > 2)
+              ?.some((ch) => compareStr?.includes(ch))
+          ) {
+            wet += 1 - i;
+          }
+          results.push({ obj, wet });
         }
-        results.push({ obj, wet });
-      }
+      });
     });
-  });
-}
+  }
   const newResults = results
     ?.sort((a, b) => b?.wet - a?.wet)
     ?.map((r) => r?.obj);
