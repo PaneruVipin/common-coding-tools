@@ -30,6 +30,28 @@ const arr = [
 
 const results1 = search(arr, ["name", "class"], "singh");
 // Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
+\ 
+\
+```javascript
+import {
+lowerCase,
+upperCase,
+} from "common-coding-tools/string"
+```
+
+Here is an example of how to use the `upperCase` function:
+```javascript
+console.log(upperCase().all("vipin"))  // "VIPIN"
+console.log(upperCase().firstCharacter("vipin"))  // "Vipin"
+
+```
+
+Here is an example of how to use the `lowerCase` function:
+```javascript
+console.log(lowerCase().all("VIPIN"))  // "vipin"
+console.log(lowerCase().firstCharacter("VIPIN"))  // "vIPIN"
+
+```
 
 const results2 = search(arr, ["class", "name"], "singh");
 // Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
