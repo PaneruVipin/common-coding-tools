@@ -1,3 +1,5 @@
+
+const { lowerCase, upperCase } = require("./string");
 const {
   search,
   descending,
@@ -5,7 +7,6 @@ const {
   arrayToObject,
   objectToArray,
 } = require("./array");
-const { lowerCase, upperCase } = require("./string");
 const {
   type,
   isUrl,
