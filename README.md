@@ -16,3 +16,43 @@ We have divided the first common-coding-tools into 4 pages based on their differ
 - [Data Validation](https://github.com/PaneruVipin/common.md/blob/main/validation.md#common-coding-toolsvalidation)
 - [Type Checking](https://github.com/PaneruVipin/common.md/blob/main/types.md#common-coding-toolstypes)        Methods: `isString` `isNumber` `isObject` `isArray` `isBoolean` `isEmail` `isUrl` `type`
 - [String Methods](https://github.com/PaneruVipin/common.md/blob/main/string.md#common-coding-toolsstring)      Methods: `lowerCase` `upperCase`
+
+
+Here is an example of how to use the `search` function:
+```javascript
+const arr = [
+  {name: "vipin bhai", class: "vipin hello"},
+  {name: "bhole bhai", class: "vipin dghhhh"},
+  {name: "prem bhai", class: "singh hello"},
+  {name: "singh bhai", class: "vipin hello"},
+  {name: "vipin bhai", class: "vipin hello"},
+];
+
+const results1 = search(arr, ["name", "class"], "singh");
+// Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
+
+const results2 = search(arr, ["class", "name"], "singh");
+// Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
+
+// Why this difference in output?
+// Because you have changed the array of object keys. The priority is decided according to the position of the key. 
+// For example, your object has three keys A, B and C. 
+// If you want to give first priority to B, second to C and third priority to A, then write like this
+// ["B","A","C"]
+
+// const yourResult=search(yourArray,["B","A","C"],"your query")
+```
+
+Here is an example of how to use the `descending` function:
+```javascript
+// Sort the array in descending order by the name property
+const sortedArr = descending(arr, "name"); 
+// [
+//   {name: "vipin bhai", class: "vipin hello"},
+//   {name: "vipin bhai", class: "vipin hello"},
+//   {name: "singh bhai", class: "vipin hello"},
+//   {name: "prem bhai", class: "singh hello"},
+//   {name: "bhole bhai", class: "vipin dghhhh"},
+// ]
+
+```
