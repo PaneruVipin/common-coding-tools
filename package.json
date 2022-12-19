@@ -9,7 +9,8 @@
         "src/_array.js",
         "src/string.js",
         "src/validation.js",
-        "src/types.js"
+        "src/types.js",
+        "src/helper"
     ],
     "scripts": {
         "test": "jest"
