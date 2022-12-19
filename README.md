@@ -30,28 +30,6 @@ const arr = [
 
 const results1 = search(arr, ["name", "class"], "singh");
 // Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
-\ 
-\
-```javascript
-import {
-lowerCase,
-upperCase,
-} from "common-coding-tools/string"
-```
-
-Here is an example of how to use the `upperCase` function:
-```javascript
-console.log(upperCase().all("vipin"))  // "VIPIN"
-console.log(upperCase().firstCharacter("vipin"))  // "Vipin"
-
-```
-
-Here is an example of how to use the `lowerCase` function:
-```javascript
-console.log(lowerCase().all("VIPIN"))  // "vipin"
-console.log(lowerCase().firstCharacter("VIPIN"))  // "vIPIN"
-
-```
 
 const results2 = search(arr, ["class", "name"], "singh");
 // Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
@@ -64,4 +42,24 @@ const results2 = search(arr, ["class", "name"], "singh");
 
 // const yourResult=search(yourArray,["B","A","C"],"your query")
 ```
+
 more example for `"common-coding-tools/array"` [`Click`](https://github.com/PaneruVipin/common.md/blob/main/array.md#common-coding-toolsarray) here
+\ 
+\
+
+Here is an example of how to use the `upperCase` and `lowerCase` function:
+```javascript
+import {
+lowerCase,
+upperCase,
+} from "common-coding-tools/string"
+
+console.log(upperCase().all("vipin"))  // "VIPIN"
+console.log(upperCase().firstCharacter("vipin"))  // "Vipin"
+
+console.log(lowerCase().all("VIPIN"))  // "vipin"
+console.log(lowerCase().firstCharacter("VIPIN"))  // "vIPIN"
+
+```
+
+
