@@ -1,12 +1,5 @@
-
 const { lowerCase, upperCase } = require("./string");
-const {
-  search,
-  descending,
-  ascending,
-  arrayToObject,
-  objectToArray,
-} = require("./array");
+
 const {
   type,
   isUrl,
@@ -18,6 +11,13 @@ const {
   isString,
 } = require("./types");
 const { validation } = require("./validation");
+const {
+  search,
+  descending,
+  ascending,
+  arrayToObject,
+  objectToArray,
+} = require("./_array");
 
 const array = { search, descending, ascending, arrayToObject, objectToArray };
 const string = { lowerCase, upperCase };

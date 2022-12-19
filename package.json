@@ -6,7 +6,7 @@
     "files": [
         "docs",
         "src/index.js",
-        "src/array.js",
+        "src/_array.js",
         "src/string.js",
         "src/validation.js",
         "src/types.js"
@@ -27,7 +27,7 @@
     "devDependencies": {},
     "exports": {
         ".": "./src/index.js",
-        "./array": "./src/array.js",
+        "./array": "./src/_array.js",
         "./string": "./src/string.js",
         "./validation": "./src/validation.js",
         "./types": "./src/types.js"
