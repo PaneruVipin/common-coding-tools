@@ -129,6 +129,7 @@ const validatedData=data.data
 }
 })
 ```
+more example for `"common-coding-tools/validation"` [`Click`](https://github.com/PaneruVipin/common.md/blob/main/validation.md#common-coding-toolsvalidation) here
 
 
 
