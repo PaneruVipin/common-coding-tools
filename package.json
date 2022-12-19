@@ -1,15 +1,15 @@
 {
     "name": "common-coding-tools",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "description": "A common code module for use in multiple npm packages",
     "main": "src/index.js",
     "files": [
         "docs",
         "./src/index.js",
         "./src/array.js",
-       "./src/string.js",
-       "./src/validation.js",
-       "./src/types.js"
+        "./src/string.js",
+        "./src/validation.js",
+        "./src/types.js"
     ],
     "scripts": {
         "test": "jest"
