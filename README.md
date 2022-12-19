@@ -64,7 +64,6 @@ console.log(lowerCase().firstCharacter("VIPIN"))  // "vIPIN"
 \
 \
 \
-\
 Here is an example of how to use the \
 `type` `isString` `isNumber` `isObject` `isBoolean` `isEmail` and `isUrl` \
 functions:
