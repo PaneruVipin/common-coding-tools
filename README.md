@@ -44,10 +44,9 @@ const results2 = search(arr, ["class", "name"], "singh");
 ```
 
 more example for `"common-coding-tools/array"` [`Click`](https://github.com/PaneruVipin/common.md/blob/main/array.md#common-coding-toolsarray) here\
- \ 
- \
-
-Here is an example of how to use the `upperCase` and `lowerCase` function:
+\
+\
+\Here is an example of how to use the `upperCase` and `lowerCase` function:
 ```javascript
 import {
 lowerCase,
