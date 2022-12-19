@@ -102,5 +102,35 @@ console.log( isArray([ "vipin", "vipin@vipin.in" ]))   //true
 console.log( isUrl("vipin@vipin.in")) //false
 console.log( isUrl("https://paneruvipin.com"))   //true
 ```
+\
+\
+\
+
+Here is an example of how to use the `validation` function:
+```javascript
+import {validation} from "common-coding-tools/validation"
+
+const signupValidator={
+       name: "string | required",
+       email: "string | required | email | trim",
+       password: "string | minLength: 8 | maxLength: 16",
+       age:"number | range: 20-30"
+}
+
+router.post("/signup", (req,res,next)=>{
+const data= validation(req.body, signupvalidator)
+
+if(data?.errors){
+const errors=data.errors
+// use errors
+}else{
+const validatedData=data.data
+// use validatedData
+// write your code here
+}
+})
+```
+
+
 
 
