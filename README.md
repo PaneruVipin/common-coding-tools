@@ -42,3 +42,4 @@ const results2 = search(arr, ["class", "name"], "singh");
 
 // const yourResult=search(yourArray,["B","A","C"],"your query")
 ```
+more example for `"common-coding-tools/array"` [`Click`](https://github.com/PaneruVipin/common.md/blob/main/array.md#common-coding-toolsarray) here
