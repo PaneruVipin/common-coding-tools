@@ -41,18 +41,4 @@ const results2 = search(arr, ["class", "name"], "singh");
 // ["B","A","C"]
 
 // const yourResult=search(yourArray,["B","A","C"],"your query")
-```
-
-Here is an example of how to use the `descending` function:
-```javascript
-// Sort the array in descending order by the name property
-const sortedArr = descending(arr, "name"); 
-// [
-//   {name: "vipin bhai", class: "vipin hello"},
-//   {name: "vipin bhai", class: "vipin hello"},
-//   {name: "singh bhai", class: "vipin hello"},
-//   {name: "prem bhai", class: "singh hello"},
-//   {name: "bhole bhai", class: "vipin dghhhh"},
-// ]
-
-```
+``
