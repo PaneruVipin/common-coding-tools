@@ -41,4 +41,4 @@ const results2 = search(arr, ["class", "name"], "singh");
 // ["B","A","C"]
 
 // const yourResult=search(yourArray,["B","A","C"],"your query")
-``
+```
