@@ -5,11 +5,11 @@
     "main": "src/index.js",
     "files": [
         "docs",
-        "./src/index.js",
-        "./src/array.js",
-        "./src/string.js",
-        "./src/validation.js",
-        "./src/types.js"
+        "src/index.js",
+        "src/array.js",
+        "src/string.js",
+        "src/validation.js",
+        "src/types.js"
     ],
     "scripts": {
         "test": "jest"
