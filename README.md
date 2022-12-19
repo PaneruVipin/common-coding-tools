@@ -105,7 +105,6 @@ console.log( isUrl("https://paneruvipin.com"))   //true
 \
 \
 \
-
 Here is an example of how to use the `validation` function:
 ```javascript
 import {validation} from "common-coding-tools/validation"
