@@ -20,7 +20,12 @@
         "coding",
         "tools",
         "common hooks",
-        "javascript"
+        "javascript",
+        "validation",
+        "data fitlerization",
+        "types",
+        "string metods",
+        "backend validation"
     ],
     "author": "PaneruVipin",
     "license": "ISC",

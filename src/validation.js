@@ -16,6 +16,15 @@ const validation = (body, rules) => {
       const rule = schema?.split(":")?.[0];
       const ruleValue = schema?.split(":")?.[1];
       if (i) {
+        if(schemaList.includes("trim")){
+          const newData = ruleHandlers?.["trim"](
+          returnedValue || body?.[key],
+          key,
+          ruleValue
+        );
+        if (newData?.error) errors.push(newData?.error);
+        returnedValue = newData?.value;
+        }
         const newData = ruleHandlers?.[rule](
           returnedValue || body?.[key],
           key,
@@ -24,7 +33,7 @@ const validation = (body, rules) => {
         if (newData?.error) errors.push(newData?.error);
         returnedValue = newData?.value;
       } else {
-        const newData = ruleHandlers?.[rule](body?.[key], key, ruleValue);
+        const newData =ruleHandlers?.[rule] && ruleHandlers?.[rule](body?.[key], key, ruleValue);
         if (newData?.error) errors.push(newData?.error);
         returnedValue = newData?.value;
       }
@@ -36,6 +45,6 @@ const validation = (body, rules) => {
   } else {
     return {errors};
   }
-};
+}
 
 module.exports = { validation };

@@ -1,4 +1,5 @@
 const { upperCase, lowerCase } = require("../../string");
+const { isObject, isArray } = require("../../types");
 
 const required = (value, feild) => {
   const data = {};
@@ -25,6 +26,53 @@ const string = (value, feild) => {
   return data;
 };
 
+const object = (value, feild) => {
+  const data = {};
+  if (isObject(value)) {
+    data.value = value;
+  } else if (!value) {
+    return;
+  } else {
+    data.error = { feild, message: `${feild} must be a object` };
+  }
+  return data;
+};
+
+const array = (value, feild, ruleValue) => {
+  const data = {};
+  if (isArray(value)) {
+    value?.forEach((v, i) => {
+      if (!ruleValue && ruleValue == "any") {
+        return;
+      } else if (typeof value != ruleValue) {
+        data.error = {
+          feild,
+          message: `${feild} value must be a ${ruleValue} type values array,
+        But provided ${typeof v} type value at ${i} index of your array `,
+        };
+      }
+    });
+    data.value = value;
+  } else if (!value) {
+    return;
+  } else {
+    data.error = { feild, message: `${feild} must be a array` };
+  }
+  return data;
+};
+
+const boolean = (value, feild) => {
+  const data = {};
+  if (typeof value == "boolean") {
+    data.value = value;
+  } else if (!value) {
+    return;
+  } else {
+    data.error = { feild, message: `${feild} must be a boolean` };
+  }
+  return data;
+};
+
 const number = (value, feild) => {
   const data = {};
   if (typeof value == "number") {
@@ -40,11 +88,13 @@ const number = (value, feild) => {
 const email = (value, feild) => {
   const data = {};
   if (
-    value?.match(
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    )
+    value
+      ?.toLowerCase()
+      ?.match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
   ) {
-    data.value = value;
+    data.value = value?.toLowerCase();
   } else if (!value) {
     return;
   } else {
@@ -156,16 +206,7 @@ const range = (value, feild, ruleValue) => {
 const trim = (value) => {
   const data = {};
   if (value) {
-    const cleandvalues = value
-      ?.split(" ")
-      .filter((str) => str != false)
-      ?.map((str) => {
-        const substrs = str?.split("")?.filter((subStr) => {
-          return subStr != false;
-        });
-        return substrs?.join("");
-      });
-    data.value = cleandvalues?.join(" ");
+    data.value = value.trim();
   }
   return data;
 };
@@ -210,7 +251,39 @@ const firstCharacterLowerCase = (value) => {
   return data;
 };
 
+const defaultValue = (value, feild, ruleValue) => {
+  const data = {};
+  if (!ruleValue) {
+    return;
+  } else if (ruleValue) {
+    data["value"] = ruleValue;
+  }
+  return data;
+};
+
+const removeAllWhiteSpace = (value) => {
+  const data = {};
+  if (value) {
+    const cleandvalues = value
+      ?.split(" ")
+      .filter((str) => str != false)
+      ?.map((str) => {
+        const substrs = str?.split("")?.filter((subStr) => {
+          return subStr != false;
+        });
+        return substrs?.join("");
+      });
+    data.value = cleandvalues?.join(" ");
+  }
+  return data;
+};
+
 const ruleHandlers = {
+  defaultValue,
+  removeAllWhiteSpace,
+  boolean,
+  array,
+  object,
   required,
   firstCharacterLowerCase,
   firstCharacterUpperCase,
@@ -228,4 +301,4 @@ const ruleHandlers = {
   string,
 };
 
-module.exports=ruleHandlers
+module.exports = ruleHandlers;
