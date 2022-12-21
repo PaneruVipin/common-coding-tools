@@ -20,6 +20,8 @@ We have divided the first common-coding-tools into 4 pages based on their differ
 
 Here is an example of how to use the `search` function:
 ```javascript
+import { search } from "common-coding-tools/array"
+
 const arr = [
   {name: "vipin bhai", class: "vipin hello"},
   {name: "bhole bhai", class: "vipin dghhhh"},
