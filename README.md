@@ -5,7 +5,7 @@ so they are all present here in the same library, so use them and avoid time and
 \
 \
 \
-**`[Click]() here for any issue, information or conversation`**
+[**Click**]()**` here for any issue, information or conversation`**
 
 ## Getting Started
 ```javascript
