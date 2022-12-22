@@ -4,7 +4,7 @@ While working with JavaScript and JavaScript Framework, many hooks have to be ma
 so they are all present here in the same library, so use them and avoid time and code repetition. \
 \
 \
-[**`Click`**](https://github.com/PaneruVipin/common.md/issues/new)**` here for any issues`** \
+[**`Click`**](https://github.com/PaneruVipin/common.md/issues/new)**` here for any issues`** 
 
 ## Getting Started
 ```javascript
