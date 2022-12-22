@@ -5,7 +5,6 @@ so they are all present here in the same library, so use them and avoid time and
 \
 \
 [**`Click`**](https://github.com/PaneruVipin/common.md/issues/new)**` here for any issues`** \
-[**`Click`**](mailto:paneruvipinbusiness@gmail.com)**` here for Contect Me`**
 
 ## Getting Started
 ```javascript
