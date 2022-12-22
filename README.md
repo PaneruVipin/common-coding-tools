@@ -5,7 +5,8 @@ so they are all present here in the same library, so use them and avoid time and
 \
 \
 \
-[**`Click`**]()**` here for any issues`**                            hello
+[**`Click`**]()**` here for any issues`** \
+[**`Click`**]()**` here for Contect Me`**
 
 ## Getting Started
 ```javascript
