@@ -252,11 +252,17 @@ const firstCharacterLowerCase = (value) => {
 };
 
 const defaultValue = (value, feild, ruleValue) => {
+  let newRuleValue;
+  try{
+     newRuleValue=eval(ruleValue)
+  }catch(e){
+  newRuleValue=ruleHandlers
+  }
   const data = {};
   if (!ruleValue) {
     return;
-  } else if (ruleValue) {
-    data["value"] = ruleValue;
+  } else if (newRuleValue) {
+    data["value"] = newRuleValue;
   }
   return data;
 };
