@@ -141,7 +141,7 @@ more example for `"common-coding-tools/validation"` [`Click`](https://github.com
 \
 \
 \
-Here is an example of how to use the `validation` function:
+Here is an example of `hashing`:
 ```javascript
 
 import {
