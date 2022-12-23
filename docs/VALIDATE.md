@@ -112,9 +112,10 @@ const validate5 = validation(data5, validator)
 \
 All rules & tools Example:
 ```javascript
+
 const userSchema={
-       name: "string | required "
-       email: "string | required | email "
+       name: "string | required ",
+       email: "string | required | email ",
        password: "string | minLength: 8 | maxLength: 16",
        age:"number "
   }
@@ -124,9 +125,49 @@ const validator = {
        email: "string | required | email | trim", // removeAllWhiteSpace
        password: "string | minLength: 8 | maxLength: 16",
        age:"number | range: 20-30" , // It can also be used instead of range-- min: 20| max :30
-       role: "defaultValue:user",
-       created_at:"defaultValue:"+ new Date(),
-       updated_at:"defaultValue:"+ new Date(),
-       users_array:`array: ${userSchema}`, // "array:any", "array:string", "array:any[]" ...etc.
-       user_object:`object: ${userSchema}` //"aobject:any"
+       role: "defaultValue: user",
+       created_at:`defaultValue: ${JSON.stringify(new Date())}`,
+       updated_at:`defaultValue: ${JSON.stringify(new Date())}`,
+       remember:`defaultValue: ${JSON.stringify(["user",new Date()])}`,
+       users_array:`array: ${JSON.stringify(userSchema)}`, // "array:any", "array:string", "array:any[]", "any{}"  ...etc.
+       user_object:`object: ${JSON.stringify(userSchema)}`, //"aobject:any"
 }
+const user={
+        name: "string",
+       email: "vipi@gmail.co",
+       password: "12345678",
+       age:10
+}
+const body={
+  ...user,
+  age:25,
+  users_array:[user],
+  user_object:user
+}
+const data=validation({...body},validator) 
+//    "data": {
+//      "name": "String",
+//      "email": "vipi@gmail.co",
+//      "password": "12345678",
+//       "age": 25,
+//       "role": " user",
+//       "created_at": "2022-12-23T18:28:51.000Z",
+//       "updated_at": "2022-12-23T18:28:51.000Z",
+//       "remember"  :[ "user", "2022-12-23T18:28:51.000Z" ]
+//       "users_array": [
+//              {
+//                 "name": "string",
+//                 "email": "vipi@gmail.co",
+//                 "password": "12345678",
+//                "age": 10
+//              }
+//       ],
+//      "user_object": {
+//          "name": "string",
+//           "email": "vipi@gmail.co",
+//            "password": "12345678",
+//            "age": 10
+//        }
+//     }
+   
+```
