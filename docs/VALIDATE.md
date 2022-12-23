@@ -107,3 +107,26 @@ const validate5 = validation(data5, validator)
 //      email: "vipin@vipin.in",
 //   }}
 ```
+\
+\
+\
+All rules & tools Example:
+```javascript
+const userSchema={
+       name: "string | required "
+       email: "string | required | email "
+       password: "string | minLength: 8 | maxLength: 16",
+       age:"number "
+  }
+  
+const validator = {
+       name: "string | required | firstCharacterUpperCase", // firstCharacterUpperCase, firstCharacterLowerCase, allUpperCase, allLowerCase
+       email: "string | required | email | trim", // removeAllWhiteSpace
+       password: "string | minLength: 8 | maxLength: 16",
+       age:"number | range: 20-30" , // It can also be used instead of range-- min: 20| max :30
+       role: "defaultValue:user",
+       created_at:"defaultValue:"+ new Date(),
+       updated_at:"defaultValue:"+ new Date(),
+       users_array:`array: ${userSchema}`, // "array:any", "array:string", "array:any[]" ...etc.
+       user_object:`object: ${userSchema}` //"aobject:any"
+}
