@@ -11,7 +11,8 @@
         "src/string.js",
         "src/validation.js",
         "src/types.js",
-        "src/helper"
+        "src/helper",
+        "src/hash.js"
     ],
     "scripts": {
         "test": "jest"
@@ -26,7 +27,10 @@
         "data fitlerization",
         "types",
         "string metods",
-        "backend validation"
+        "backend validation",
+        "hashing",
+        "converter fn",
+        "array methodes"
     ],
     "author": "PaneruVipin",
     "funding": [
@@ -43,6 +47,7 @@
         "./array": "./src/_array.js",
         "./string": "./src/string.js",
         "./validation": "./src/validation.js",
-        "./types": "./src/types.js"
+        "./types": "./src/types.js",
+        "./hashing":"./src/hash.js"
     }
 }
