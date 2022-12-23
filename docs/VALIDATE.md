@@ -150,7 +150,7 @@ const data=validation({...body},validator)
 //      "email": "vipi@gmail.co",
 //      "password": "12345678",
 //       "age": 25,
-//       "role": " user",
+//       "role": "user",
 //       "created_at": "2022-12-23T18:28:51.000Z",
 //       "updated_at": "2022-12-23T18:28:51.000Z",
 //       "remember"  :[ "user", "2022-12-23T18:28:51.000Z" ]
