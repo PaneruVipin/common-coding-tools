@@ -133,7 +133,7 @@ const validator = {
        user_object:`object: ${JSON.stringify(userSchema)}`, //"aobject:any"
 }
 const user={
-        name: "string",
+        name: "vipin paneru",
        email: "vipi@gmail.co",
        password: "12345678",
        age:10
@@ -146,7 +146,7 @@ const body={
 }
 const data=validation({...body},validator) 
 //    "data": {
-//      "name": "String",
+//      "name": "Vipin Paneru",
 //      "email": "vipi@gmail.co",
 //      "password": "12345678",
 //       "age": 25,
@@ -156,14 +156,14 @@ const data=validation({...body},validator)
 //       "remember"  :[ "user", "2022-12-23T18:28:51.000Z" ]
 //       "users_array": [
 //              {
-//                 "name": "string",
+//                 "name": "vipin paneru",
 //                 "email": "vipi@gmail.co",
 //                 "password": "12345678",
 //                "age": 10
 //              }
 //       ],
 //      "user_object": {
-//          "name": "string",
+//          "name": "vipin paneru",
 //           "email": "vipi@gmail.co",
 //            "password": "12345678",
 //            "age": 10
