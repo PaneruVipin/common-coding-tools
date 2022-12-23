@@ -31,13 +31,11 @@ const object = (value, feild, newRuleValue) => {
   const data = {};
   let ruleValue;
   try {
-    ruleValue = eval(newRuleValue);
+    ruleValue = JSON.parse(newRuleValue);
   } catch (e) {
-    ruleValue = newRuleValue;
+    ruleValue = newRuleValue.trim();
   }
-  if (ignoreEval.includes(eval(newRuleValue))) {
-    ruleValue = newRuleValue;
-  }
+
   if (isObject(ruleValue)) {
     const newData = validation(value, ruleValue);
     if (newData?.errors) {
@@ -58,59 +56,49 @@ const object = (value, feild, newRuleValue) => {
 const array = (value, feild, newRuleValue) => {
   let ruleValue;
   try {
-    ruleValue = eval(newRuleValue);
+    ruleValue = JSON.parse(newRuleValue);
   } catch (e) {
-    ruleValue = newRuleValue;
+    ruleValue = newRuleValue.trim();
   }
-  if (ignoreEval.includes(eval(newRuleValue))) {
-    ruleValue = newRuleValue;
-  }
-  const data = {};
-  if (isArray(value)) {
+  const data = { value: [] };
+  if (value && !isArray(value)) {
+    data.error = { feild, message: `${feild} must be a array` };
+  } else if (!ruleValue || ruleValue == "any") {
+    data.value = value;
+  } else if (ruleValue === "any[]") {
     value?.forEach((v, i) => {
-      if (!ruleValue && ruleValue == "any") {
-        data.value = value;
-      } else if (ruleValue === "any[]") {
-        if (!isArray(v)) {
-          data.error = {
-            feild,
-            message: `${feild} value must be a ${ruleValue} type values array,
-          But provided ${typeof v} type value at ${i} index of your array `,
-          };
-        } else {
-          data.value = value;
-        }
-      } else if (ruleValue === "any{}") {
-        if (!isObject(v)) {
-          data.error = {
-            feild,
-            message: `${feild} value must be a ${ruleValue} type values array,
-          But provided ${typeof v} type value at ${i} index of your array `,
-          };
-        } else {
-          data.value = value;
-        }
-      } else if (isObject(ruleValue)) {
-        const newData = validation(v, ruleValue);
-        if (newData?.errors) {
-          data.error = newData?.errors?.[0];
-        } else {
-          data.value = newData?.data;
-        }
-      } else if (typeof v != ruleValue) {
+      if (!isArray(v)) {
         data.error = {
           feild,
           message: `${feild} value must be a ${ruleValue} type values array,
-        But provided ${typeof v} type value at ${i} index of your array `,
+          But provided ${typeof v} type value at ${i} index of your array `,
         };
       } else {
         data.value = value;
       }
     });
+  } else if (ruleValue === "any{}") {
+    value?.forEach((v, i) => {
+      if (!isObject(v)) {
+        data.error = {
+          feild,
+          message: `${feild} value must be a ${ruleValue} type values array, But provided ${typeof v} type value at ${i} index of your array `,
+        };
+      } else {
+        data.value = value;
+      }
+    });
+  } else if (isObject(ruleValue)) {
+    (value?.length ? value : [{}])?.forEach((v, i) => {
+      const newData = validation(v, ruleValue);
+      if (newData?.errors) {
+        data.error = newData?.errors?.[0];
+      } else {
+        data.value?.push(newData?.data);
+      }
+    });
   } else if (!value) {
     return;
-  } else {
-    data.error = { feild, message: `${feild} must be a array` };
   }
   return data;
 };
@@ -308,13 +296,11 @@ const firstCharacterLowerCase = (value) => {
 const defaultValue = (value, feild, ruleValue) => {
   let newRuleValue;
   try {
-    newRuleValue = eval(ruleValue);
+    newRuleValue = JSON.parse(ruleValue);
   } catch (e) {
-    newRuleValue = ruleValue;
+    newRuleValue = ruleValue.trim();
   }
-  if (ignoreEval.includes(eval(ruleValue))) {
-    newRuleValue = ruleValue;
-  }
+
   const data = {};
   if (!ruleValue) {
     return;
@@ -363,15 +349,5 @@ const ruleHandlers = {
   number,
   string,
 };
-
-var ignoreEval = [
-  ...ruleHandlers,
-  ruleHandlers,
-  upperCase,
-  lowerCase,
-  isObject,
-  isArray,
-  validation,
-];
 
 module.exports = ruleHandlers;

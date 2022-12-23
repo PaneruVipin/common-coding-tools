@@ -1,27 +1,34 @@
 const ruleHandlers = require("./helper/validate/rule");
 
-const validation = (body, rules) => {
+var validation = (body, rules) => {
   const data = {};
   const errors = [];
   const ruleKeys = Object.keys(rules);
   ruleKeys?.forEach((key, i) => {
-    const schemaList = rules?.[key].split("|").map((str) =>
-      str
-        ?.trim()
-    );
+    let schemaList;
+    if (rules?.[key]?.includes("{") || rules?.[key]?.includes("["))
+      schemaList = [rules?.[key]];
+    else {
+      schemaList = rules?.[key].split("|").map((str) => str?.trim());
+    }
     let returnedValue;
+    // console.log("schemaList"schemaList)
     schemaList?.forEach((schema, i) => {
       const rule = schema?.split(":")?.[0]?.trim();
-      const ruleValue = schema?.split(":")?.[1]?.trim();
+      const ruleValue = schema
+        ?.split(":")
+        .filter((s, i) => i)
+        .join(":");
+      // console.log(rule,ruleValue)
       if (i) {
-        if(schemaList.includes("trim")){
+        if (schemaList.includes("trim")) {
           const newData = ruleHandlers?.["trim"](
-          returnedValue || body?.[key],
-          key,
-          ruleValue
-        );
-        if (newData?.error) errors.push(newData?.error);
-        returnedValue = newData?.value;
+            returnedValue || body?.[key],
+            key,
+            ruleValue
+          );
+          if (newData?.error) errors.push(newData?.error);
+          returnedValue = newData?.value;
         }
         const newData = ruleHandlers?.[rule](
           returnedValue || body?.[key],
@@ -31,7 +38,8 @@ const validation = (body, rules) => {
         if (newData?.error) errors.push(newData?.error);
         returnedValue = newData?.value;
       } else {
-        const newData =ruleHandlers?.[rule] && ruleHandlers?.[rule](body?.[key], key, ruleValue);
+        // console.log(body?.[key], key, ruleValue)
+        const newData = ruleHandlers?.[rule](body?.[key], key, ruleValue);
         if (newData?.error) errors.push(newData?.error);
         returnedValue = newData?.value;
       }
@@ -39,10 +47,10 @@ const validation = (body, rules) => {
     data[key] = returnedValue;
   });
   if (!errors.length) {
-    return {data};
+    return { data };
   } else {
-    return {errors};
+    return { errors };
   }
-}
+};
 
 module.exports = { validation };
