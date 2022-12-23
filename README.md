@@ -138,7 +138,29 @@ const validatedData=data.data
 })
 ```
 more example for `"common-coding-tools/validation"` [`Click`](https://github.com/PaneruVipin/common-coding-tools/blob/main/docs/VALIDATE.md#common-coding-toolsvalidation) here
+\
+\
+\
+Here is an example of how to use the `validation` function:
+```javascript
 
+import {
+makeHash,
+verifyHash
+} from "common-coding-tools/hashing"
+
+const password="1234567"
+const hashedPassword = makeHash( password , 4) // second argument any number 
+// output: 7101818432503545
+// For more security of encryption use `.env` Secret number for 2nd argument
+
+const  confirm_pass1 = "1234567"
+const  confirm_pass2 = "12345678"
+const  verifyPassword = verifyHash(confirm_pass1, hashedPassword, 4)  // third args is same as makHash 2nd args
+// output : true
+const verifyPassword = verifyHash(confirm_pass2, hashedPassword, 4)  
+// output : false
+```
 
 
 
