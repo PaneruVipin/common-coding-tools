@@ -1,5 +1,5 @@
-const makeHash = (str, seed ) => {
-  const seed=seed|| str?.length || str
+const makeHash = (str, seedValue ) => {
+  const seed=seedValue|| str?.length || str
   let h1 = 0xdeadbeef ^ seed,
     h2 = 0x41c6ce57 ^ seed;
   for (let i = 0, ch; i < str.length; i++) {
@@ -18,9 +18,9 @@ const makeHash = (str, seed ) => {
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 
-const verifyHash = (value, compare,seed) => {
+const verifyHash = (value, compare,seedValue) => {
   // const data={}
-  const seed=seed|| value?.length || value
+  const seed=seedValue|| value?.length || value
   if (makeHash(value,seed) === compare) {
     return true;
   } else {
