@@ -110,7 +110,7 @@ const validate5 = validation(data5, validator)
 \
 \
 \
-All rules & tools:
+All rules & tools Example:
 ```javascript
 const userSchema={
        name: "string | required "
