@@ -31,6 +31,6 @@ const  confirm_pass1 = "1234567"
 const  confirm_pass2 = "12345678"
 const  verifyPassword = verifyHash(confirm_pass1, hashedPassword, 4)  // third args is same as makHash 2nd args
 // output : true
-const verifyPassword = verifyHash(confirm_pass2, hashedPassword, 4)  //always third args is same as makHash 2nd args
+const verifyPassword = verifyHash(confirm_pass2, hashedPassword, 4)  
 // output : false
 ```
