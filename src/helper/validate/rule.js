@@ -1,5 +1,6 @@
 const { upperCase, lowerCase } = require("../../string");
 const { isObject, isArray } = require("../../types");
+const { validation } = require("../../validation");
 
 const required = (value, feild) => {
   const data = {};
@@ -26,9 +27,25 @@ const string = (value, feild) => {
   return data;
 };
 
-const object = (value, feild) => {
+const object = (value, feild, newRuleValue) => {
   const data = {};
-  if (isObject(value)) {
+  let ruleValue;
+  try {
+    ruleValue = eval(newRuleValue);
+  } catch (e) {
+    ruleValue = newRuleValue;
+  }
+  if (ignoreEval.includes(eval(newRuleValue))) {
+    ruleValue = newRuleValue;
+  }
+  if (isObject(ruleValue)) {
+    const newData = validation(value, ruleValue);
+    if (newData?.errors) {
+      data.error = newData?.errors?.[0];
+    } else {
+      data.value = newData?.data;
+    }
+  } else if (!ruleValue && value && ruleValue == "any") {
     data.value = value;
   } else if (!value) {
     return;
@@ -38,21 +55,58 @@ const object = (value, feild) => {
   return data;
 };
 
-const array = (value, feild, ruleValue) => {
+const array = (value, feild, newRuleValue) => {
+  let ruleValue;
+  try {
+    ruleValue = eval(newRuleValue);
+  } catch (e) {
+    ruleValue = newRuleValue;
+  }
+  if (ignoreEval.includes(eval(newRuleValue))) {
+    ruleValue = newRuleValue;
+  }
   const data = {};
   if (isArray(value)) {
     value?.forEach((v, i) => {
       if (!ruleValue && ruleValue == "any") {
-        return;
-      } else if (typeof value != ruleValue) {
+        data.value = value;
+      } else if (ruleValue === "any[]") {
+        if (!isArray(v)) {
+          data.error = {
+            feild,
+            message: `${feild} value must be a ${ruleValue} type values array,
+          But provided ${typeof v} type value at ${i} index of your array `,
+          };
+        } else {
+          data.value = value;
+        }
+      } else if (ruleValue === "any{}") {
+        if (!isObject(v)) {
+          data.error = {
+            feild,
+            message: `${feild} value must be a ${ruleValue} type values array,
+          But provided ${typeof v} type value at ${i} index of your array `,
+          };
+        } else {
+          data.value = value;
+        }
+      } else if (isObject(ruleValue)) {
+        const newData = validation(v, ruleValue);
+        if (newData?.errors) {
+          data.error = newData?.errors?.[0];
+        } else {
+          data.value = newData?.data;
+        }
+      } else if (typeof v != ruleValue) {
         data.error = {
           feild,
           message: `${feild} value must be a ${ruleValue} type values array,
         But provided ${typeof v} type value at ${i} index of your array `,
         };
+      } else {
+        data.value = value;
       }
     });
-    data.value = value;
   } else if (!value) {
     return;
   } else {
@@ -253,10 +307,13 @@ const firstCharacterLowerCase = (value) => {
 
 const defaultValue = (value, feild, ruleValue) => {
   let newRuleValue;
-  try{
-     newRuleValue=eval(ruleValue)
-  }catch(e){
-  newRuleValue=ruleHandlers
+  try {
+    newRuleValue = eval(ruleValue);
+  } catch (e) {
+    newRuleValue = ruleValue;
+  }
+  if (ignoreEval.includes(eval(ruleValue))) {
+    newRuleValue = ruleValue;
   }
   const data = {};
   if (!ruleValue) {
@@ -306,5 +363,15 @@ const ruleHandlers = {
   number,
   string,
 };
+
+var ignoreEval = [
+  ...ruleHandlers,
+  ruleHandlers,
+  upperCase,
+  lowerCase,
+  isObject,
+  isArray,
+  validation,
+];
 
 module.exports = ruleHandlers;
