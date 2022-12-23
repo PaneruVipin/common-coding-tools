@@ -22,6 +22,7 @@ Here is an example of how to use the `makeHash` function:
 const password="1234567"
 const hashedPassword = makeHash( password , 4) // second argument any number 
 // output: 7101818432503545
+// For more security of encryption use `.env` Secret number for 2nd argument
 ```
 
 Here is an example of how to use the `verifyHash` function:
