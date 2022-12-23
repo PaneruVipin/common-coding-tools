@@ -1,6 +1,6 @@
 {
     "name": "common-coding-tools",
-    "version": "1.0.25",
+    "version": "1.0.26",
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
     "main": "src/index.js",
@@ -48,6 +48,6 @@
         "./string": "./src/string.js",
         "./validation": "./src/validation.js",
         "./types": "./src/types.js",
-        "./hashing":"./src/hash.js"
+        "./hashing": "./src/hash.js"
     }
 }
