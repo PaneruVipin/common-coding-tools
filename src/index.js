@@ -1,3 +1,4 @@
+const { makeHash, verifyHash } = require("./hash");
 const { lowerCase, upperCase } = require("./string");
 
 const {
@@ -18,7 +19,7 @@ const {
   arrayToObject,
   objectToArray,
 } = require("./_array");
-
+const hashing = { makeHash, verifyHash };
 const array = { search, descending, ascending, arrayToObject, objectToArray };
 const string = { lowerCase, upperCase };
 const types = {
@@ -31,4 +32,4 @@ const types = {
   isNumber,
   isString,
 };
-module.exports = { array, string, types, validation };
+module.exports = { array, string, types, validation, hashing };
