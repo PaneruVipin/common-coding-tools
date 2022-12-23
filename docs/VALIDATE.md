@@ -1,6 +1,13 @@
+ 
 ## common-coding-tools/validation
 The validation Method makes it easy to validate data.
 Mostly used in API development, the work of validating the request.
+
+```javascript
+
+ npm install common-coding-tools@latest
+ 
+ ```
 
 ### Usage
 ```javascript
@@ -15,7 +22,10 @@ const signupValidator={
        name: "string | required",
        email: "string | required | email | trim",
        password: "string | minLength: 8 | maxLength: 16",
-       age:"number | range: 20-30"
+       age: "number | range: 20-100",
+       role: "defaultValue : user",
+       created_at: "defaultValue :"+ new Date(),
+       updated_at: "defaultValue:"+ new Date()
 }
 
 router.post("/signup", (req,res,next)=>{

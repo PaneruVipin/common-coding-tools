@@ -7,14 +7,12 @@ const validation = (body, rules) => {
   ruleKeys?.forEach((key, i) => {
     const schemaList = rules?.[key].split("|").map((str) =>
       str
-        ?.split(" ")
-        ?.filter((subStr) => subStr != false)
-        .join("")
+        ?.trim()
     );
     let returnedValue;
     schemaList?.forEach((schema, i) => {
-      const rule = schema?.split(":")?.[0];
-      const ruleValue = schema?.split(":")?.[1];
+      const rule = schema?.split(":")?.[0]?.trim();
+      const ruleValue = schema?.split(":")?.[1]?.trim();
       if (i) {
         if(schemaList.includes("trim")){
           const newData = ruleHandlers?.["trim"](

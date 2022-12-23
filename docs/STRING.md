@@ -1,6 +1,12 @@
 ## common-coding-tools/string
 Some methods related to strings are written in the string page. Whose examples are written below.
 
+```javascript
+
+ npm install common-coding-tools@latest
+ 
+ ```
+
 ### Usage
 Available Methods:
 ```javascript
@@ -23,4 +29,3 @@ console.log(lowerCase().all("VIPIN"))  // "vipin"
 console.log(lowerCase().firstCharacter("VIPIN"))  // "vIPIN"
 
 ```
-
