@@ -11,7 +11,7 @@ Mostly used in API development, the work of validating the request.
 
 ### Usage
 ```javascript
-import { validation } from "common-coding-tools/validation"
+import { validation, schema } from "common-coding-tools/validation"
 ```
 
 How to use in Node.js project:
