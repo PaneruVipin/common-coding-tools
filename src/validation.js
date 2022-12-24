@@ -53,4 +53,7 @@ var validation = (body, rules) => {
   }
 };
 
-module.exports = { validation };
+var schema = (data) => {
+  return JSON.stringify(data);
+};
+module.exports = { validation, schema };
