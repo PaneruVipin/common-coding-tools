@@ -23,9 +23,9 @@ const signupValidator={
        email: "string | required | email | trim",
        password: "string | minLength: 8 | maxLength: 16",
        age: "number | range: 20-100",
-       role: "defaultValue : user",
-       created_at: "defaultValue :"+ new Date(),
-       updated_at: "defaultValue:"+ new Date()
+       role: `defaultValue : ${schema( "user" )}`,
+       created_at: `defaultValue : ${schema( new Date() )}`,
+       updated_at: `defaultValue : ${schema( new Date() )}`,
 }
 
 router.post("/signup", (req,res,next)=>{
@@ -112,6 +112,7 @@ const validate5 = validation(data5, validator)
 \
 All rules & tools Example:
 ```javascript
+import { schema, validation } form "common-coding-tools/validation"
 
 const userSchema={
        name: "string | required ",
@@ -125,30 +126,32 @@ const validator = {
        email: "string | required | email | trim", // removeAllWhiteSpace
        password: "string | minLength: 8 | maxLength: 16",
        age:"number | range: 20-30" , // It can also be used instead of range-- min: 20| max :30
-       role: "defaultValue: user",
-       created_at:`defaultValue: ${JSON.stringify(new Date())}`,
-       updated_at:`defaultValue: ${JSON.stringify(new Date())}`,
+       role: `defaultValue : ${schema( "user" )}`,
+       created_at: `defaultValue : ${schema( new Date() )}`,
+       updated_at: `defaultValue : ${schema( new Date() )}`,
        remember:`defaultValue: ${JSON.stringify(["user",new Date()])}`,
-       users_array:`array: ${JSON.stringify(userSchema)}`, // "array:any", "array:string", "array:any[]", "any{}"  ...etc.
-       user_object:`object: ${JSON.stringify(userSchema)}`, //"aobject:any"
+       users_array:`array: ${schema(userSchema)}`, // "array:any", "array:string", "array:any[]", "any{}"  ...etc.
+       user_object:`object: $schema(userSchema)}`, //"aobject:any"
 }
 const user={
-        name: "vipin paneru",
-       email: "vipi@gmail.co",
+       name: "vipin paneru",
+       email: "vipin@gmail.co",
        password: "12345678",
        age:10
 }
 const body={
-  ...user,
+  name: "pnaeru", // firstCharacterUpperCase, firstCharacterLowerCase, allUpperCase, allLowerCase
+  email: "paneru@gmail.in", // removeAllWhiteSpace
+  password: "hello@1234",
   age:25,
   users_array:[user],
   user_object:user
 }
-const data=validation({...body},validator) 
+const data=validation( body, validator) 
 //    "data": {
 //      "name": "Vipin Paneru",
-//      "email": "vipi@gmail.co",
-//      "password": "12345678",
+//      "email": "paneru@gmail.in",
+//      "password": "hello@1234",
 //       "age": 25,
 //       "role": "user",
 //       "created_at": "2022-12-23T18:28:51.000Z",
@@ -157,14 +160,14 @@ const data=validation({...body},validator)
 //       "users_array": [
 //              {
 //                 "name": "vipin paneru",
-//                 "email": "vipi@gmail.co",
+//                 "email": "vipin@gmail.co",
 //                 "password": "12345678",
 //                "age": 10
 //              }
 //       ],
 //      "user_object": {
 //          "name": "vipin paneru",
-//           "email": "vipi@gmail.co",
+//           "email": "vipin@gmail.co",
 //            "password": "12345678",
 //            "age": 10
 //        }
