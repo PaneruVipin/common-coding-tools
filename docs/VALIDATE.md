@@ -131,7 +131,7 @@ const validator = {
        updated_at: `defaultValue : ${schema( new Date() )}`,
        remember:`defaultValue: ${JSON.stringify(["user",new Date()])}`,
        users_array:`array: ${schema(userSchema)}`, // "array:any", "array:string", "array:any[]", "any{}"  ...etc.
-       user_object:`object: $schema(userSchema)}`, //"aobject:any"
+       user_object:`object: ${schema(userSchema)}`, //"aobject:any"
 }
 const user={
        name: "vipin paneru",
