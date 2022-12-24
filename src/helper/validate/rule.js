@@ -1,12 +1,15 @@
 const { upperCase, lowerCase } = require("../../string");
+
 const { isObject, isArray } = require("../../types");
+
 var validation = (body, rules) => {
   const data = {};
   const errors = [];
   const ruleKeys = Object.keys(rules);
   ruleKeys?.forEach((key, i) => {
     let schemaList;
-    if (rules?.[key]?.includes("{") || rules?.[key]?.includes("["))
+    if ((rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) 
+    || (rules?.[key]?.includes("[") && rules?.[key]?.includes("]")))
       schemaList = [rules?.[key]];
     else {
       schemaList = rules?.[key].split("|").map((str) => str?.trim());
@@ -90,7 +93,10 @@ const object = (value, feild, newRuleValue) => {
   if (isObject(ruleValue)) {
     const newData = validation(value, ruleValue);
     if (newData?.errors) {
-      data.error = newData?.errors?.[0];
+      data.error = {
+        feild:`${feild}.${newData?.errors?.[0]?.feild}`,
+        message:newData?.errors?.[0]?.message
+      };
     } else {
       data.value = newData?.data;
     }
@@ -98,8 +104,10 @@ const object = (value, feild, newRuleValue) => {
     data.value = value;
   } else if (!value) {
     return;
-  } else {
+  } else if(!isObject(value)) {
     data.error = { feild, message: `${feild} must be a object` };
+  }else{
+    data.value = value;
   }
   return data;
 };
@@ -143,7 +151,10 @@ const array = (value, feild, newRuleValue) => {
     (value?.length ? value : [{}])?.forEach((v, i) => {
       const newData = validation(v, ruleValue);
       if (newData?.errors) {
-        data.error = newData?.errors?.[0];
+        data.error = {
+          feild:`${feild}[${i}].${newData?.errors?.[0]?.feild}`,
+          message:newData?.errors?.[0]?.message
+        };
       } else {
         data.value?.push(newData?.data);
       }
