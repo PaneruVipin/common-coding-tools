@@ -113,16 +113,16 @@ console.log( isUrl("https://paneruvipin.com"))   //true
 \
 Here is an example of how to use the `validation` function:
 ```javascript
-import {validation} from "common-coding-tools/validation"
+import { validation, schema } from "common-coding-tools/validation"
 
 const signupValidator={
        name: "string | required",
        email: "string | required | email | trim",
        password: "string | minLength: 8 | maxLength: 16",
        age: "number | range: 20-100",
-       role: "defaultValue : user",
-       created_at: "defaultValue :"+ new Date(),
-       updated_at: "defaultValue:"+ new Date()
+       role: `defaultValue : ${schema( "user" )}
+       created_at: `defaultValue : ${schema( new Date() )}`,
+       updated_at: `defaultValue : ${schema( new Date() )}`,
 }
 
 router.post("/signup", (req,res,next)=>{
