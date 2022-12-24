@@ -120,7 +120,7 @@ const signupValidator={
        email: "string | required | email | trim",
        password: "string | minLength: 8 | maxLength: 16",
        age: "number | range: 20-100",
-       role: `defaultValue : ${schema( "user" )}
+       role: `defaultValue : ${schema( "user" )}`,
        created_at: `defaultValue : ${schema( new Date() )}`,
        updated_at: `defaultValue : ${schema( new Date() )}`,
 }
