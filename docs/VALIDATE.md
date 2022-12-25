@@ -126,6 +126,7 @@ const validator = {
        email: "string | required | email | trim", // removeAllWhiteSpace
        password: "string | minLength: 8 | maxLength: 16",
        age:"number | range: 20-30" , // It can also be used instead of range-- min: 20| max :30
+       applying_for:`oneOfThese: ["internship","fullTime"] | required`,
        role: `defaultValue : ${schema( "user" )}`,
        created_at: `defaultValue : ${schema( new Date() )}`,
        updated_at: `defaultValue : ${schema( new Date() )}`,
@@ -144,6 +145,7 @@ const body={
   email: "paneru@gmail.in", // removeAllWhiteSpace
   password: "hello@1234",
   age:25,
+  applying_for:"internship",
   users_array:[user],
   user_object:user
 }
@@ -154,6 +156,7 @@ const data=validation( body, validator)
 //      "password": "hello@1234",
 //       "age": 25,
 //       "role": "user",
+//        applying_for:"internship",
 //       "created_at": "2022-12-23T18:28:51.000Z",
 //       "updated_at": "2022-12-23T18:28:51.000Z",
 //       "remember"  :[ "user", "2022-12-23T18:28:51.000Z" ]
