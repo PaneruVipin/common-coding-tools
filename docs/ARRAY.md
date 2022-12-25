@@ -53,19 +53,32 @@ const arr = [
         }
     ]
 
-const results1 = search(arr, ["name", "class"], "singh");
-// Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
+const results = search(arr, "vitly");
+//  Output: [{
+//    "gender": "male",
+//    "name": {
+//      "title": "Mr",
+//      "first": "Vitaliy",
+//      "last": "Nechay"
+//    },
+//    "email": "vitaliy.nechay@example.com"
+//  }] 
 
-const results2 = search(arr, ["class", "name"], "singh");
-// Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
+//  optional arguments
+//  with 3rd arguments --> 
+// You can set priority with third arguments. Its priority is the index of the array in which the key will be written.
+// if you want name >>>> gender >>> email       
+// write like this
 
-// Why this difference in output?
-// Because you have changed the array of object keys. The priority is decided according to the position of the key. 
-// For example, your object has three keys A, B and C. 
-// If you want to give first priority to B, second to C and third priority to A, then write like this
-// ["B","A","C"]
+search(arr,"query", ["name","gender","email"]) // get output:
 
-// const yourResult=search(yourArray,["B","A","C"],"your query")
+// with fourth argument ----> ignoreList
+// Function will not search in this field
+// EXAMPLE:
+// you want to ignore email for search write like this
+
+search(arr,"query",[], ["email"]) // get output:
+
 ```
 
 Here is an example of how to use the `descending` function:
