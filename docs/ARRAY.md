@@ -126,30 +126,92 @@ Here is an example of how to use the `converter` function:
 ```javascript
 
 // Convert the array into an object using the name property as the keys
-const object = arrayToObject(arr, "name");
-// {
-//   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
-//   "bhole bhai": {name: "bhole bhai", class: "vipin dghhhh"},
-//   "prem bhai": {name: "prem bhai", class: "singh hello"},
-//   "singh bhai": {name: "singh bhai", class: "vipin hello"},
-//   "vipin bhai": {name: "vipin bhai", class: "vipin hello"},
-// }
+const object = arrayToObject(arr, "name.first");
+//    {
+//        Vitaliy: {
+//        gender: "amale",
+//        name: {title: "Mr",first: "Vitaliy",last: "Nechay",},
+//        email: "vitaliy.nechay@example.com",
+//      },
+//      Ceyhun: {
+//        gender: "male",
+//        name: {title: "Mr",first: "Ceyhun",last: "Tekelioğlu",},
+//        email: "ceyhun.tekelioglu@example.com",
+//      },
+//      Pelle: {
+//        gender: "male",
+//        name: { title: "Mr", first: "Pelle",last: "Vestnes",},
+//        email: "pelle.vestnes@example.com",
+//      },
+//      Stanislaw: {
+//        gender: "male",
+//        name: { title: "Mr",first: "Stanislaw",last: "Aanestad",},
+//        email: "stanislaw.aanestad@example.com",
+//      },
+//      Esperanza: {
+//        gender: "female",
+//        name: { title: "Mrs",first: "Esperanza", last: "Colón",},
+//        email: "esperanza.colon@example.com",
+//      },
+//    };
 
 //When you do not use the second argument, the output will be something like
-// {
-//   "1": {name: "vipin bhai", class: "vipin hello"},
-//   "2": {name: "bhole bhai", class: "vipin dghhhh"},
-//   "3": {name: "prem bhai", class: "singh hello"},
-//   "4": {name: "singh bhai", class: "vipin hello"},
-//   "5": {name: "vipin bhai", class: "vipin hello"},
-// }
+//    {
+//        "1": {
+//        gender: "amale",
+//        name: {title: "Mr",first: "Vitaliy",last: "Nechay",},
+//        email: "vitaliy.nechay@example.com",
+//      },
+//      "2": {
+//        gender: "male",
+//        name: {title: "Mr",first: "Ceyhun",last: "Tekelioğlu",},
+//        email: "ceyhun.tekelioglu@example.com",
+//      },
+//      "3": {
+//        gender: "male",
+//        name: { title: "Mr", first: "Pelle",last: "Vestnes",},
+//        email: "pelle.vestnes@example.com",
+//      },
+//      "4": {
+//        gender: "male",
+//        name: { title: "Mr",first: "Stanislaw",last: "Aanestad",},
+//        email: "stanislaw.aanestad@example.com",
+//      },
+//      "5": {
+//        gender: "female",
+//        name: { title: "Mrs",first: "Esperanza", last: "Colón",},
+//        email: "esperanza.colon@example.com",
+//      },
+//    };
 
 const array = objectToArray(object);
-// [
-//     {name: "vipin bhai", class: "vipin hello"},
-//     {name: "bhole bhai", class: "vipin dghhhh"},
-//     {name: "prem bhai", class: "singh hello"},
-//     {name: "singh bhai", class: "vipin hello"},
-//     {name: "vipin bhai", class: "vipin hello"},
-// ]
+//    [
+//           {
+//               "gender": "male",
+//               "name": { "title": "Mr",  "first": "Vitaliy", "last": "Nechay" },
+//               "email": "vitaliy.nechay@example.com",
+//           },
+//           {
+//               "gender": "male",
+//               "name": { "title": "Mr", "first": "Ceyhun", "last": "Tekelioğlu"  },
+//               "email": "ceyhun.tekelioglu@example.com",
+//           },
+//           {
+//               "gender": "male",
+//               "name": { "title": "Mr", "first": "Pelle", "last": "Vestnes"
+//               },
+//               "email": "pelle.vestnes@example.com",
+//           },
+//           {
+//               "gender": "male",
+//               "name": { "title": "Mr","first": "Stanislaw", "last": "Aanestad"
+//               },
+//               "email": "stanislaw.aanestad@example.com",
+//           },
+//           {
+//               "gender": "female",
+//               "name": { "title": "Mrs",  "first": "Esperanza",  "last": "Colón"},
+//               "email": "esperanza.colon@example.com",
+//           }
+//       ]
 ```
