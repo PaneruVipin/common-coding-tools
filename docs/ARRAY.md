@@ -156,6 +156,7 @@ const object = arrayToObject(arr, "name.first");
 //    };
 
 //When you do not use the second argument, the output will be something like
+const object = arrayToObject(arr);
 //    {
 //        "1": {
 //        gender: "amale",
