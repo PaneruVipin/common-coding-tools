@@ -56,7 +56,7 @@ const arr = [
         }
     ],
 
-const results1 = search(arr, "vitly");
+const results = search(arr, "vitly");
 //  Output: [{
 //    "gender": "male",
 //    "name": {
