@@ -71,14 +71,34 @@ const results2 = search(arr, ["class", "name"], "singh");
 Here is an example of how to use the `descending` function:
 ```javascript
 // Sort the array in descending order by the name property
-const sortedArr = descending(arr, "name"); 
-// [
-//   {name: "vipin bhai", class: "vipin hello"},
-//   {name: "vipin bhai", class: "vipin hello"},
-//   {name: "singh bhai", class: "vipin hello"},
-//   {name: "prem bhai", class: "singh hello"},
-//   {name: "bhole bhai", class: "vipin dghhhh"},
-// ]
+const sortedArr = descending(arr, "name.first"); 
+//   [
+//     {
+//       gender: "amale",
+//       name: { title: "Mr",first: "Vitaliy", last: "Nechay",},
+//       email: "vitaliy.nechay@example.com",
+//     },
+//     {
+//       gender: "male",
+//       name: {title: "Mr", first: "Stanislaw",last: "Aanestad",},
+//       email: "stanislaw.aanestad@example.com",
+//     },
+//     {
+//       gender: "male",
+//       name: { title: "Mr",first: "Pelle",last: "Vestnes",},
+//       email: "pelle.vestnes@example.com",
+//     },
+//     {
+//       gender: "female",
+//       name: {title: "Mrs",first: "Esperanza",last: "Colón",},
+//      email: "esperanza.colon@example.com",
+//     },
+//     {
+//      gender: "male",
+//      name: { title: "Mr",first: "Ceyhun",last: "Tekelioğlu",},
+//       email: "ceyhun.tekelioglu@example.com",
+//     },
+//   ];
 
 ```
 other examples:
