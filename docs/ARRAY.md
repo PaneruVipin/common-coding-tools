@@ -19,7 +19,7 @@ ObjectToArray
 } from "common-coding-tools/array"
 ```
 
-The `search` function takes three arguments: the array to search, an array of object keys to search, and the search query. It returns an array of objects that match the search query.
+The `search` function takes 2 requied and 2 optional arguments: the array to search, the search query, an array of feild keys to search with priority, and ignoreList. It returns an array of objects that match the search query.
 
 Here is an example of how to use the `search` function:
 ```javascript
