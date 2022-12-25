@@ -73,7 +73,6 @@ const results = search(arr, "vitly");
 search(arr,"query", ["name","gender","email"]) // get output:
 
 // with fourth argument ----> ignoreList
-// Function will not search in this field
 // EXAMPLE:
 // you want to ignore email for search write like this
 
