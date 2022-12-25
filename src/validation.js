@@ -7,8 +7,7 @@ var validation = (body, rules) => {
   ruleKeys?.forEach((key, i) => {
     let schemaList;
     if (
-      (rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) ||
-      (rules?.[key]?.includes("[") && rules?.[key]?.includes("]"))
+      (rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) 
     )
       schemaList = [rules?.[key]];
     else {
