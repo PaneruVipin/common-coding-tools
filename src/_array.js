@@ -1,57 +1,125 @@
-const search = (arr, keys, query) => {
+const { isObject, isArray } = require("./types");
+
+const arrayToString = (data = []) => {
+  const strList = data.map((d) => {
+    if (typeof d == "string" || typeof d == "number") {
+      return d;
+    } else if (isObject(d)) {
+      return oblectToString(d);
+    } else if (isArray(d)) {
+      return arrayToString(d);
+    } else {
+      return d;
+    }
+  });
+  return strList?.join(" ");
+};
+
+const oblectToString = (data = {}) => {
+  const keys = Object.keys(data);
+  const strList = keys.map((key) => {
+    if (typeof data?.[key] == "string" || typeof data?.[key] == "number") {
+      return data?.[key];
+    } else if (isObject(data?.[key])) {
+      return oblectToString(data?.[key]);
+    } else if (isArray(data?.[key])) {
+      return arrayToString(data?.[key]);
+    } else {
+      return data?.[key];
+    }
+  });
+  return strList?.join(" ");
+};
+
+const search = (arr = [], query, keys = [], ignoreKeys = []) => {
+  const newKeys = Object.keys(arr?.[0] || {});
+  const allKeys = [...new Set([...keys, ...newKeys])];
+  const filteredKeys = allKeys?.filter((key) => !ignoreKeys?.includes(key));
   let results = [];
   if (!query) {
-    console.error("provide a query");
+    return arr;
   } else {
     const newQuery = query.toLowerCase();
     arr?.forEach((obj) => {
-      keys?.forEach((key, i) => {
+      filteredKeys?.forEach((key, i) => {
         let wet = 0;
-        const compareStr = obj?.[key]?.toLowerCase();
         if (
-          compareStr?.includes(newQuery) ||
-          newQuery?.includes(compareStr) ||
-          newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
-          compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch)) ||
-          compareStr
-            ?.replace(/ /g, "")
-            ?.match(/.{1,4}/g)
-            .filter((str) => str.length > 2)
-            ?.some((ch) => newQuery?.includes(ch)) ||
-          newQuery
-            ?.replace(/ /g, "")
-            ?.match(/.{1,4}/g)
-            .filter((str) => str.length > 2)
-            ?.some((ch) => compareStr?.includes(ch))
+          typeof obj?.[key] == "string" ||
+          typeof obj?.[key] == "number" ||
+          typeof obj?.[key] == "object" ||
+          typeof obj?.[key] == "boolean"
         ) {
-          if (compareStr?.startsWith(newQuery)) {
-            wet += 20 - i;
+          let compareStr;
+          if (typeof obj?.[key] == "string") {
+            compareStr = obj?.[key]?.toLowerCase();
           }
-          if (obj?.[key]?.toLowerCase()?.includes(newQuery)) {
-            wet += 10 - i;
+          if (isObject(obj?.[key])) {
+            console.log("runniig 2");
+            const newStr = oblectToString(obj?.[key]);
+            compareStr = newStr?.toLowerCase();
+          }
+          if (isArray(obj?.[key])) {
+            const newStr = arrayToString(obj?.[key]);
+            compareStr = newStr?.toLowerCase();
+          }
+          if (typeof obj?.[key] == "boolean" || typeof obj?.[key] == "number") {
+            compareStr = JSON.stringify(obj?.[key]);
           }
           if (
+            compareStr?.includes(newQuery) ||
             newQuery?.includes(compareStr) ||
             newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
-            compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch))
-          ) {
-            wet += 5 - i;
-          }
-          if (
+            compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch)) ||
             compareStr
               ?.replace(/ /g, "")
-              ?.match(/.{1,4}/g)
-              .filter((str) => str.length > 2)
+              ?.match(
+                new RegExp(
+                  `.{1,${(compareStr?.length + (compareStr?.length % 2)) / 2}}`,
+                  "g"
+                )
+              )
+              .filter((str) => str.length >= 2)
               ?.some((ch) => newQuery?.includes(ch)) ||
             newQuery
               ?.replace(/ /g, "")
-              ?.match(/.{1,4}/g)
-              .filter((str) => str.length > 2)
+              ?.match(
+                new RegExp(
+                  `.{1,${(newQuery?.length + (newQuery?.length % 2)) / 2}}`,
+                  "g"
+                )
+              )
+              .filter((str) => str.length >= 2)
               ?.some((ch) => compareStr?.includes(ch))
           ) {
-            wet += 1 - i;
+            if (compareStr?.startsWith(newQuery)) {
+              wet += 20 - i;
+            }
+            if (compareStr?.includes(newQuery)) {
+              wet += 10 - i;
+            }
+            if (
+              newQuery?.includes(compareStr) ||
+              newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
+              compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch))
+            ) {
+              wet += 5 - i;
+            }
+            if (
+              compareStr
+                ?.replace(/ /g, "")
+                ?.match(/.{1,4}/g)
+                .filter((str) => str.length > 2)
+                ?.some((ch) => newQuery?.includes(ch)) ||
+              newQuery
+                ?.replace(/ /g, "")
+                ?.match(/.{1,4}/g)
+                .filter((str) => str.length > 2)
+                ?.some((ch) => compareStr?.includes(ch))
+            ) {
+              wet += 1 - i;
+            }
+            results.push({ obj, wet });
           }
-          results.push({ obj, wet });
         }
       });
     });

@@ -8,8 +8,7 @@ var validation = (body, rules) => {
   const ruleKeys = Object.keys(rules);
   ruleKeys?.forEach((key, i) => {
     let schemaList;
-    if ((rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) 
-    || (rules?.[key]?.includes("[") && rules?.[key]?.includes("]")))
+    if ((rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) )
       schemaList = [rules?.[key]];
     else {
       schemaList = rules?.[key].split("|").map((str) => str?.trim());
@@ -389,7 +388,30 @@ const removeAllWhiteSpace = (value) => {
   return data;
 };
 
+const oneOfThese=(value, feild, ruleValue)=>{
+  const data = {};
+  let newRuleValue;
+  try{
+    newRuleValue=JSON.parse(ruleValue)
+  }catch(e){
+    newRuleValue=ruleValue
+  }
+  // const ranges = ruleValue.split("-");
+  if (newRuleValue?.includes(value) || !isArray(newRuleValue)) {
+    data.value = value;
+  } else if (!value) {
+    return;
+  } else {
+    data.error = {
+      feild,
+      message: `${feild} may be one of these ${newRuleValue?.join(" or ")}`,
+    };
+  }
+  return data;
+}
+
 var ruleHandlers = {
+  oneOfThese,
   defaultValue,
   removeAllWhiteSpace,
   boolean,
