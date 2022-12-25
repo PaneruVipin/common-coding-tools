@@ -54,7 +54,6 @@ const search = (arr = [], query, keys = [], ignoreKeys = []) => {
             compareStr = obj?.[key]?.toLowerCase();
           }
           if (isObject(obj?.[key])) {
-            console.log("runniig 2");
             const newStr = oblectToString(obj?.[key]);
             compareStr = newStr?.toLowerCase();
           }
@@ -69,17 +68,6 @@ const search = (arr = [], query, keys = [], ignoreKeys = []) => {
             compareStr?.includes(newQuery) ||
             newQuery?.includes(compareStr) ||
             newQuery?.split(" ")?.some((ch) => compareStr?.includes(ch)) ||
-            compareStr?.split(" ")?.some((ch) => newQuery?.includes(ch)) ||
-            compareStr
-              ?.replace(/ /g, "")
-              ?.match(
-                new RegExp(
-                  `.{1,${(compareStr?.length + (compareStr?.length % 2)) / 2}}`,
-                  "g"
-                )
-              )
-              .filter((str) => str.length >= 2)
-              ?.some((ch) => newQuery?.includes(ch)) ||
             newQuery
               ?.replace(/ /g, "")
               ?.match(
@@ -108,12 +96,12 @@ const search = (arr = [], query, keys = [], ignoreKeys = []) => {
               compareStr
                 ?.replace(/ /g, "")
                 ?.match(/.{1,4}/g)
-                .filter((str) => str.length > 2)
+                .filter((str) => str.length >= 2)
                 ?.some((ch) => newQuery?.includes(ch)) ||
               newQuery
                 ?.replace(/ /g, "")
                 ?.match(/.{1,4}/g)
-                .filter((str) => str.length > 2)
+                .filter((str) => str.length >= 2)
                 ?.some((ch) => compareStr?.includes(ch))
             ) {
               wet += 1 - i;
