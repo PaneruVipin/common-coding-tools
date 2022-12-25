@@ -24,12 +24,34 @@ The `search` function takes three arguments: the array to search, an array of ob
 Here is an example of how to use the `search` function:
 ```javascript
 const arr = [
-  {name: "vipin bhai", class: "vipin hello"},
-  {name: "bhole bhai", class: "vipin dghhhh"},
-  {name: "prem bhai", class: "singh hello"},
-  {name: "singh bhai", class: "vipin hello"},
-  {name: "vipin bhai", class: "vipin hello"},
-];
+        {
+            "gender": "male",
+            "name": { "title": "Mr",  "first": "Vitaliy", "last": "Nechay" },
+            "email": "vitaliy.nechay@example.com",
+        },
+        {
+            "gender": "male",
+            "name": { "title": "Mr", "first": "Ceyhun", "last": "Tekelioğlu"  },
+            "email": "ceyhun.tekelioglu@example.com",
+        },
+        {
+            "gender": "male",
+            "name": { "title": "Mr", "first": "Pelle", "last": "Vestnes"
+            },
+            "email": "pelle.vestnes@example.com",
+        },
+        {
+            "gender": "male",
+            "name": { "title": "Mr","first": "Stanislaw", "last": "Aanestad"
+            },
+            "email": "stanislaw.aanestad@example.com",
+        },
+        {
+            "gender": "female",
+            "name": { "title": "Mrs",  "first": "Esperanza",  "last": "Colón"},
+            "email": "esperanza.colon@example.com",
+        }
+    ]
 
 const results1 = search(arr, ["name", "class"], "singh");
 // Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
