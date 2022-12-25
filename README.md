@@ -34,19 +34,9 @@ const arr = [
   {name: "vipin bhai", class: "vipin hello"},
 ];
 
-const results1 = search(arr, ["name", "class"], "singh");
+const results1 = search(arr, "singh");
 // Output: [ {name: "singh bhai", class: "vipin hello"},{name: "prem bhai", class: "singh hello"}]
 
-const results2 = search(arr, ["class", "name"], "singh");
-// Output: [{name: "prem bhai", class: "singh hello"}, {name: "singh bhai", class: "vipin hello"}]
-
-// Why this difference in output?
-// Because you have changed the array of object keys. The priority is decided according to the position of the key. 
-// For example, your object has three keys A, B and C. 
-// If you want to give first priority to B, second to C and third priority to A, then write like this
-// ["B","A","C"]
-
-// const yourResult=search(yourArray,["B","A","C"],"your query")
 ```
 
 more example for `"common-coding-tools/array"` [`Click`](https://github.com/PaneruVipin/common-coding-tools/blob/main/docs/ARRAY.md#common-coding-toolsarray) here\
