@@ -54,7 +54,7 @@ const arr = [
             "name": { "title": "Mrs",  "first": "Esperanza",  "last": "Colón"},
             "email": "esperanza.colon@example.com",
         }
-    ],
+    ]
 
 const results = search(arr, "vitly");
 //  Output: [{
