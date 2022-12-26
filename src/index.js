@@ -1,6 +1,7 @@
 const { makeHash, verifyHash } = require("./hash");
+const { randomNumber, randomData, randomString } = require("./random");
 const { lowerCase, upperCase } = require("./string");
-
+const random = { randomNumber, randomData, randomString };
 const {
   type,
   isUrl,
@@ -11,7 +12,7 @@ const {
   isNumber,
   isString,
 } = require("./types");
-const { validation } = require("./validation");
+const { validation, schema } = require("./validation");
 const {
   search,
   descending,
@@ -32,4 +33,12 @@ const types = {
   isNumber,
   isString,
 };
-module.exports = { array, string, types, validation, hashing };
+
+module.exports = {
+  array,
+  string,
+  types,
+  validation: { validation, schema },
+  hashing,
+  random,
+};
