@@ -183,6 +183,22 @@ const  verifyPassword = verifyHash(confirm_pass1, hashedPassword, 4)  // third a
 const verifyPassword = verifyHash(confirm_pass2, hashedPassword, 4)  
 // output : false
 ```
+\
+\
+\
+Here is an example of how to use the `randomString` `randomNumber` function:
+```javascript
+import {
+randomString,
+randomNumber,
+randomData
+} from "common-coding-tools/random"
 
 
+randomString(6) // 6 is length
+// output like this: "AdSRR4"  any 6 length string
+
+randomNumber(40,0) // first argument is highestNumber and second is
+// output like this: 23   -->. any number between 40 and 0
+```
 
