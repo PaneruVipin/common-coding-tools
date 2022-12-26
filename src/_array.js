@@ -1,5 +1,18 @@
 const { isObject, isArray } = require("./types");
 
+const allKeysInArray = (arr = []) => {
+  const allKeyList = arr.map((o) => {
+    if(isObject(o)){
+      return Object.keys(o);
+    }else{
+      return []
+    } 
+  });
+  const allkeys = allKeyList.reduce((a, b) => [...a, ...b], []);
+  const filteredAllKeys = [...new Set(allkeys)];
+  return filteredAllKeys;
+};
+
 const arrayToString = (data = []) => {
   const strList = data.map((d) => {
     if (typeof d == "string" || typeof d == "number") {
@@ -32,7 +45,7 @@ const objectToString = (data = {}) => {
 };
 
 const search = (arr = [], query, keys = [], ignoreKeys = []) => {
-  const newKeys = Object.keys(arr?.[0] || {});
+  const newKeys = allKeysInArray(arr)
   const allKeys = [...new Set([...keys, ...newKeys])];
   const filteredKeys = allKeys?.filter((key) => !ignoreKeys?.includes(key));
   let results = [];
@@ -191,6 +204,7 @@ const objectToArray = (obj) => {
 };
 
 module.exports = {
+  allKeysInArray,
   search,
   descending,
   ascending,
