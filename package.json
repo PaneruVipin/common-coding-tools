@@ -5,7 +5,6 @@
     "repository": "PaneruVipin/common-coding-tools",
     "main": "src/index.js",
     "files": [
-        "docs",
         "src"
     ],
     "scripts": {
