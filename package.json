@@ -6,13 +6,7 @@
     "main": "src/index.js",
     "files": [
         "docs",
-        "src/index.js",
-        "src/_array.js",
-        "src/string.js",
-        "src/validation.js",
-        "src/types.js",
-        "src/helper",
-        "src/hash.js"
+        "src"
     ],
     "scripts": {
         "test": "jest"
@@ -48,6 +42,7 @@
         "./string": "./src/string.js",
         "./validation": "./src/validation.js",
         "./types": "./src/types.js",
-        "./hashing": "./src/hash.js"
+        "./hashing": "./src/hash.js",
+        "./random": "./src/random.js"
     }
 }
