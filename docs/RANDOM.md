@@ -59,7 +59,7 @@ const arr = [
     ]
   const random = randomData(arr)
  // output like this:    {
- //         //                "gender": "male",
+ //                         "gender": "male",
  //                           "name": { "title": "Mr","first": "Stanislaw", "last": "Aanestad"
  //                           },
  //                           "email": "stanislaw.aanestad@example.com",
