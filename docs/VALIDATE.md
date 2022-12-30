@@ -141,8 +141,8 @@ const user={
        age:10
 }
 const body={
-  name: "pnaeru", // firstCharacterUpperCase, firstCharacterLowerCase, allUpperCase, allLowerCase
-  email: "paneru@gmail.in", // removeAllWhiteSpace
+  name: "pnaeru", 
+  email: "paneru@gmail.in",
   password: "hello@1234",
   age:25,
   applying_for:"internship",
