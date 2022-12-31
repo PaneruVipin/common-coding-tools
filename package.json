@@ -43,41 +43,13 @@
     ],
     "license": "ISC",
     "exports": {
-        ".": {
-            "types": "./src/index.d.ts",
-            "import": "./src/index.js",
-            "require": "./src/index.js"
-        },
-        "./array": {
-            "types": "./array/index.d.ts",
-            "import": "./array/index.js",
-            "require": "./array/index.js"
-        },
-        "./string": {
-            "types": "./string/index.d.ts",
-            "import": "./string/index.js",
-            "require": "./string/index.d.ts"
-        },
-        "./validation": {
-            "types": "./validation/index.d.ts",
-            "import": "./validation/index.js",
-            "require": "./validation/index.js"
-        },
-        "./types": {
-            "types": "./types/index.d.ts",
-            "import": "./types/index.js",
-            "require": "./types/index.js"
-        },
-        "./hashing": {
-            "types": "./hashing/index.d.ts",
-            "import": "./hashing/index.js",
-            "require": "./hashing/index.js"
-        },
-        "./random": {
-            "types": "./random/index.d.ts",
-            "import": "./random/index.js",
-            "require": "./random/index.js"
-        }
+        ".": "./src/index.js",
+        "./array":"./array/index.js",
+        "./string":"./string/index.d.ts",
+        "./validation":"./validation/index.js",
+        "./types":"./types/index.js",
+        "./hashing": "./hashing/index.js",
+        "./random": "./random/index.js"
     },
     "devDependencies": {
         "typescript": "^4.9.4"
