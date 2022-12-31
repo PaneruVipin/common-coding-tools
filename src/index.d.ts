@@ -1,7 +1,7 @@
-export * as array from "../array";
-export * as hashing from "../hashing";
-export * as random from "../random";
-export * as string from "../string";
-export * as types from "../types";
-export * as validation from "../validation";
-export * as string from "../string";
+export * from "../array";
+export * from "../hashing";
+export * from "../random";
+export * from "../string";
+export * from "../types";
+export * from "../validation";
+export * from "../string";
