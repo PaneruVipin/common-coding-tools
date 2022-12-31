@@ -1,4 +1,4 @@
-const ruleHandlers = require("../../src/helper/validate/rule");
+const ruleHandlers = require("../src/helper/validate/rule");
 
 var validation = (body, rules) => {
   const data = {};
