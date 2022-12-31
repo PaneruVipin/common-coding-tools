@@ -1,6 +1,6 @@
 {
     "name": "common-coding-tools",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
     "main": "src/index.js",
@@ -39,33 +39,33 @@
             "types": "./src/index.d.ts",
             "import": "./src/index.js",
             "require": "./src/index.js"
-          },
-        "./array": {
-            "import":"./src/_array.js",
-            "require":"./src/_array.js",
-            "types":"./src/_array.d.ts"
         },
-        "./string":{
+        "./array": {
+            "import": "./src/_array.js",
+            "require": "./src/_array.js",
+            "types": "./src/_array.d.ts"
+        },
+        "./string": {
             "import": "./src/string.js",
             "require": "./src/string.js",
             "types": "./src/string.d.ts"
         },
-        "./validation":{
+        "./validation": {
             "import": "./src/validation.js",
             "require": "./src/validation.js",
             "types": "./src/validation.d.ts"
         },
-        "./types":{
+        "./types": {
             "import": "./src/types.js",
             "require": "./src/types.js",
             "types": "./src/types.d.ts"
         },
-        "./hashing":{
+        "./hashing": {
             "import": "./src/hash.js",
             "require": "./src/hash.js",
             "types": "./src/hash.d.ts"
         },
-        "./random":{
+        "./random": {
             "import": "./src/random.js",
             "require": "./src/random.js",
             "types": "./src/random.d.ts"
