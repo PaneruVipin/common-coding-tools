@@ -1,6 +1,6 @@
 const { isObject, isArray } = require("./types");
 
-const allKeysInArray = (arr = []) => {
+const allKeysInArray = (arr) => {
   const allKeyList = arr.map((o) => {
     if(isObject(o)){
       return Object.keys(o);
@@ -13,7 +13,7 @@ const allKeysInArray = (arr = []) => {
   return filteredAllKeys;
 };
 
-const arrayToString = (data = []) => {
+const arrayToString = (data) => {
   const strList = data.map((d) => {
     if (typeof d == "string" || typeof d == "number") {
       return d;
@@ -28,7 +28,7 @@ const arrayToString = (data = []) => {
   return strList?.join(" ");
 };
 
-const objectToString = (data = {}) => {
+const objectToString = (data) => {
   const keys = Object.keys(data);
   const strList = keys.map((key) => {
     if (typeof data?.[key] == "string" || typeof data?.[key] == "number") {
@@ -44,7 +44,7 @@ const objectToString = (data = {}) => {
   return strList?.join(" ");
 };
 
-const search = (arr = [], query, keys = [], ignoreKeys = []) => {
+const search = (arr, query, keys = [], ignoreKeys = []) => {
   const newKeys = allKeysInArray(arr)
   const allKeys = [...new Set([...keys, ...newKeys])];
   const filteredKeys = allKeys?.filter((key) => !ignoreKeys?.includes(key));
@@ -131,7 +131,7 @@ const search = (arr = [], query, keys = [], ignoreKeys = []) => {
   return [...new Set(newResults)];
 };
 
-const descending = (arr = [{}], key) => {
+const descending = (arr, key) => {
   const keys = (key || Object.keys(arr[0])?.[0]).split(".");
   if (typeof arr?.[0] == "string") {
     return arr.sort((a, b) => b.localeCompare(a));
@@ -185,7 +185,7 @@ const ascending = (arr, key) => {
   }
 };
 
-const arrayToObject = (arr = [], key) => {
+const arrayToObject = (arr, key) => {
   const keys = key.split(".");
   let i = 0;
   const object = arr?.reduce((a, b) => {

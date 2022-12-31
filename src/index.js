@@ -4,6 +4,7 @@ const string = require("./string");
 const validation = require("./validation");
 const types = require("./types");
 const array = require("./_array");
+
 module.exports = {
   array,
   string,

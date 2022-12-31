@@ -4,6 +4,7 @@
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
     "main": "src/index.js",
+    "typings": "src/index.d.ts",
     "files": [
         "src"
     ],
@@ -33,15 +34,44 @@
         }
     ],
     "license": "ISC",
-    "dependencies": {},
-    "devDependencies": {},
     "exports": {
-        ".": "./src/index.js",
-        "./array": "./src/_array.js",
-        "./string": "./src/string.js",
-        "./validation": "./src/validation.js",
-        "./types": "./src/types.js",
-        "./hashing": "./src/hash.js",
-        "./random": "./src/random.js"
+        ".": {
+            "types": "./src/index.d.ts",
+            "import": "./src/index.js",
+            "require": "./src/index.js"
+          },
+        "./array": {
+            "import":"./src/_array.js",
+            "require":"./src/_array.js",
+            "types":"./src/_array.d.ts"
+        },
+        "./string":{
+            "import": "./src/string.js",
+            "require": "./src/string.js",
+            "types": "./src/string.d.ts"
+        },
+        "./validation":{
+            "import": "./src/validation.js",
+            "require": "./src/validation.js",
+            "types": "./src/validation.d.ts"
+        },
+        "./types":{
+            "import": "./src/types.js",
+            "require": "./src/types.js",
+            "types": "./src/types.d.ts"
+        },
+        "./hashing":{
+            "import": "./src/hash.js",
+            "require": "./src/hash.js",
+            "types": "./src/hash.d.ts"
+        },
+        "./random":{
+            "import": "./src/random.js",
+            "require": "./src/random.js",
+            "types": "./src/random.d.ts"
+        }
+    },
+    "devDependencies": {
+        "typescript": "^4.9.4"
     }
 }
