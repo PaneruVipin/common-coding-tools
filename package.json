@@ -3,7 +3,7 @@
     "version": "2.0.13",
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
-    "main": "./src/index.d.ts",
+    "main": "./src/index.js",
     "typings": "./src/index.d.ts",
     "module": "./src/index.js",
     "types": "./src/index.d.ts",
@@ -45,38 +45,38 @@
     "exports": {
         ".": {
             "types": "./src/index.d.ts",
-            "import": "./src/index.d.ts",
+            "import": "./src/index.js",
             "require": "./src/index.js"
         },
         "./array": {
             "types": "./array/index.d.ts",
-            "import": "./array/index.d.ts",
+            "import": "./array/index.js",
             "require": "./array/index.js"
         },
         "./string": {
             "types": "./string/index.d.ts",
-            "import": "./string/index.d.ts",
+            "import": "./string/index.js",
             "require": "./string/index.d.ts"
         },
         "./validation": {
             "types": "./validation/index.d.ts",
-            "import": "./validation/index.d.ts",
-            "require": "./validation/index.d.ts"
+            "import": "./validation/index.js",
+            "require": "./validation/index.js"
         },
         "./types": {
             "types": "./types/index.d.ts",
-            "import": "./types/index.d.ts",
-            "require": "./types/index.d.ts"
+            "import": "./types/index.js",
+            "require": "./types/index.js"
         },
         "./hashing": {
             "types": "./hashing/index.d.ts",
-            "import": "./hashing/index.d.ts",
-            "require": "./hashing/index.d.ts"
+            "import": "./hashing/index.js",
+            "require": "./hashing/index.js"
         },
         "./random": {
             "types": "./random/index.d.ts",
-            "import": "./random/index.d.ts",
-            "require": "./random/index.d.ts"
+            "import": "./random/index.js",
+            "require": "./random/index.js"
         }
     },
     "devDependencies": {
