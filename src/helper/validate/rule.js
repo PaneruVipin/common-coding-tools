@@ -1,4 +1,3 @@
-const { commoncodingtoots } = require("../..");
 const { upperCase, lowerCase } = require("../../../string");
 
 const { isObject, isArray } = require("../../../types");
