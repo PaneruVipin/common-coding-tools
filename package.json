@@ -45,38 +45,38 @@
     "exports": {
         ".": {
             "types": "./src/index.d.ts",
-            "import": "./src/index.js",
+            "import": "./src/index.d.ts",
             "require": "./src/index.js"
         },
         "./array": {
             "types": "./array/index.d.ts",
-            "import": "./array/index.js",
+            "import": "./array/index.d.ts",
             "require": "./array/index.js"
         },
         "./string": {
             "types": "./string/index.d.ts",
-            "import": "./string/index.js",
-            "require": "./string/index.js"
+            "import": "./string/index.d.ts",
+            "require": "./string/index.d.ts"
         },
         "./validation": {
             "types": "./validation/index.d.ts",
-            "import": "./validation/index.js",
-            "require": "./validation/index.js"
+            "import": "./validation/index.d.ts",
+            "require": "./validation/index.d.ts"
         },
         "./types": {
             "types": "./types/index.d.ts",
-            "import": "./types/index.js",
-            "require": "./types/index.js"
+            "import": "./types/index.d.ts",
+            "require": "./types/index.d.ts"
         },
         "./hashing": {
             "types": "./hashing/index.d.ts",
-            "import": "./hashing/index.js",
-            "require": "./hashing/index.js"
+            "import": "./hashing/index.d.ts",
+            "require": "./hashing/index.d.ts"
         },
         "./random": {
             "types": "./random/index.d.ts",
-            "import": "./random/index.js",
-            "require": "./random/index.js"
+            "import": "./random/index.d.ts",
+            "require": "./random/index.d.ts"
         }
     },
     "devDependencies": {
