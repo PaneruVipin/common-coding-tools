@@ -1,6 +1,6 @@
 {
     "name": "common-coding-tools",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
     "main": "src/index.js",
