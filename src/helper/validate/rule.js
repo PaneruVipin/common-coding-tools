@@ -1,6 +1,6 @@
-const { upperCase, lowerCase } = require("../../string");
+const { upperCase, lowerCase } = require("../../../string");
 
-const { isObject, isArray } = require("../../types");
+const { isObject, isArray } = require("../../../types");
 
 var validation = (body, rules) => {
   const data = {};
@@ -8,7 +8,7 @@ var validation = (body, rules) => {
   const ruleKeys = Object.keys(rules);
   ruleKeys?.forEach((key, i) => {
     let schemaList;
-    if ((rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) )
+    if (rules?.[key]?.includes("{") && rules?.[key]?.includes("}"))
       schemaList = [rules?.[key]];
     else {
       schemaList = rules?.[key].split("|").map((str) => str?.trim());
@@ -93,8 +93,8 @@ const object = (value, feild, newRuleValue) => {
     const newData = validation(value, ruleValue);
     if (newData?.errors) {
       data.error = {
-        feild:`${feild}.${newData?.errors?.[0]?.feild}`,
-        message:newData?.errors?.[0]?.message
+        feild: `${feild}.${newData?.errors?.[0]?.feild}`,
+        message: newData?.errors?.[0]?.message,
       };
     } else {
       data.value = newData?.data;
@@ -103,9 +103,9 @@ const object = (value, feild, newRuleValue) => {
     data.value = value;
   } else if (!value) {
     return;
-  } else if(!isObject(value)) {
+  } else if (!isObject(value)) {
     data.error = { feild, message: `${feild} must be a object` };
-  }else{
+  } else {
     data.value = value;
   }
   return data;
@@ -151,8 +151,8 @@ const array = (value, feild, newRuleValue) => {
       const newData = validation(v, ruleValue);
       if (newData?.errors) {
         data.error = {
-          feild:`${feild}[${i}].${newData?.errors?.[0]?.feild}`,
-          message:newData?.errors?.[0]?.message
+          feild: `${feild}[${i}].${newData?.errors?.[0]?.feild}`,
+          message: newData?.errors?.[0]?.message,
         };
       } else {
         data.value?.push(newData?.data);
@@ -388,13 +388,13 @@ const removeAllWhiteSpace = (value) => {
   return data;
 };
 
-const oneOfThese=(value, feild, ruleValue)=>{
+const oneOfThese = (value, feild, ruleValue) => {
   const data = {};
   let newRuleValue;
-  try{
-    newRuleValue=JSON.parse(ruleValue)
-  }catch(e){
-    newRuleValue=ruleValue
+  try {
+    newRuleValue = JSON.parse(ruleValue);
+  } catch (e) {
+    newRuleValue = ruleValue;
   }
   // const ranges = ruleValue.split("-");
   if (newRuleValue?.includes(value) || !isArray(newRuleValue)) {
@@ -408,7 +408,7 @@ const oneOfThese=(value, feild, ruleValue)=>{
     };
   }
   return data;
-}
+};
 
 var ruleHandlers = {
   oneOfThese,

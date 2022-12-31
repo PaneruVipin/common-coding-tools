@@ -6,7 +6,13 @@
     "main": "src/index.js",
     "typings": "src/index.d.ts",
     "files": [
-        "src"
+        "src",
+        "array",
+        "hashing",
+        "random",
+        "string",
+        "types",
+        "validation"
     ],
     "scripts": {
         "test": "jest"
@@ -41,34 +47,34 @@
             "require": "./src/index.js"
         },
         "./array": {
-            "import": "./src/_array.js",
-            "require": "./src/_array.js",
-            "types": "./src/_array.d.ts"
+            "types": "./array/index.d.ts",
+            "import": "./array/index.js",
+            "require": "./array/index.js"
         },
         "./string": {
-            "import": "./src/string.js",
-            "require": "./src/string.js",
-            "types": "./src/string.d.ts"
+            "types": "./string/index.d.ts",
+            "import": "./string/index.js",
+            "require": "./string/index.js"
         },
         "./validation": {
-            "import": "./src/validation.js",
-            "require": "./src/validation.js",
-            "types": "./src/validation.d.ts"
+            "types": "./validation/index.d.ts",
+            "import": "./validation/index.js",
+            "require": "./validation/index.js"
         },
         "./types": {
-            "import": "./src/types.js",
-            "require": "./src/types.js",
-            "types": "./src/types.d.ts"
+            "types": "./types/index.d.ts",
+            "import": "./types/index.js",
+            "require": "./types/index.js"
         },
         "./hashing": {
-            "import": "./src/hash.js",
-            "require": "./src/hash.js",
-            "types": "./src/hash.d.ts"
+            "types": "./hashing/index.d.ts",
+            "import": "./hashing/index.js",
+            "require": "./hashing/index.js"
         },
         "./random": {
-            "import": "./src/random.js",
-            "require": "./src/random.js",
-            "types": "./src/random.d.ts"
+            "types": "./random/index.d.ts",
+            "import": "./random/index.js",
+            "require": "./random/index.js"
         }
     },
     "devDependencies": {

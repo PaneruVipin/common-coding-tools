@@ -1,4 +1,4 @@
-const ruleHandlers = require("./helper/validate/rule");
+const ruleHandlers = require("../src/helper/validate/rule");
 
 var validation = (body, rules) => {
   const data = {};
@@ -6,9 +6,7 @@ var validation = (body, rules) => {
   const ruleKeys = Object.keys(rules);
   ruleKeys?.forEach((key, i) => {
     let schemaList;
-    if (
-      (rules?.[key]?.includes("{") && rules?.[key]?.includes("}")) 
-    )
+    if (rules?.[key]?.includes("{") && rules?.[key]?.includes("}"))
       schemaList = [rules?.[key]];
     else {
       schemaList = rules?.[key].split("|").map((str) => str?.trim());

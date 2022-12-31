@@ -1,12 +1,12 @@
-const { isObject, isArray } = require("./types");
+const { isObject, isArray } = require("../types");
 
 const allKeysInArray = (arr) => {
   const allKeyList = arr.map((o) => {
-    if(isObject(o)){
+    if (isObject(o)) {
       return Object.keys(o);
-    }else{
-      return []
-    } 
+    } else {
+      return [];
+    }
   });
   const allkeys = allKeyList.reduce((a, b) => [...a, ...b], []);
   const filteredAllKeys = [...new Set(allkeys)];
@@ -45,7 +45,7 @@ const objectToString = (data) => {
 };
 
 const search = (arr, query, keys = [], ignoreKeys = []) => {
-  const newKeys = allKeysInArray(arr)
+  const newKeys = allKeysInArray(arr);
   const allKeys = [...new Set([...keys, ...newKeys])];
   const filteredKeys = allKeys?.filter((key) => !ignoreKeys?.includes(key));
   let results = [];
