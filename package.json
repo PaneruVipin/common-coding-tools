@@ -42,7 +42,7 @@
     "exports": {
         ".": "./src/index.js",
         "./array": "./array/index.js",
-        "./string": "./string/index.d.ts",
+        "./string": "./string/index.js",
         "./validation": "./validation/index.js",
         "./types": "./types/index.js",
         "./hashing": "./hashing/index.js",

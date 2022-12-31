@@ -1,4 +1,4 @@
-const ruleHandlers = require("../src/helper/validate/rule");
+const ruleHandlers = require("../../src/helper/validate/rule");
 
 var validation = (body, rules) => {
   const data = {};
@@ -57,4 +57,4 @@ var schema = (data) => {
   return JSON.stringify(data);
 };
 
-module.exports = { validation, schema };
+module.exports={validation,schema}
