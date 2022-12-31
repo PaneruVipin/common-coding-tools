@@ -5,6 +5,7 @@
     "repository": "PaneruVipin/common-coding-tools",
     "main": "src/index.js",
     "typings": "src/index.d.ts",
+    "module": "src/index.js",
     "files": [
         "src",
         "array",
