@@ -56,5 +56,6 @@ var validation = (body, rules) => {
 var schema = (data) => {
   return JSON.stringify(data);
 };
-
-module.exports={validation,schema}
+exports.validation = validation;
+exports.schema = schema;
+module.exports = { validation, schema };

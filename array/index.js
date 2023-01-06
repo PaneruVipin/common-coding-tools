@@ -203,6 +203,12 @@ const objectToArray = (obj) => {
   return array;
 };
 
+exports.search = search;
+exports.allKeysInArray = allKeysInArray;
+exports.descending = descending;
+exports.ascending = ascending;
+exports.arrayToObject = arrayToObject;
+exports.objectToArray = objectToArray;
 module.exports = {
   allKeysInArray,
   search,

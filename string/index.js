@@ -31,5 +31,6 @@ const upperCase = () => {
   };
   return { firstCharacter, all };
 };
-
+exports.lowerCase = lowerCase;
+exports.upperCase = upperCase;
 module.exports = { lowerCase, upperCase };

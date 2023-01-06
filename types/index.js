@@ -96,7 +96,14 @@ const type = (value) => {
   });
   return rtn;
 };
-
+exports.type = type;
+exports.isUrl = isUrl;
+exports.isEmail = isEmail;
+exports.isBoolean = isBoolean;
+exports.isArray = isArray;
+exports.isObject = isObject;
+exports.isNumber = isNumber;
+exports.isString = isString;
 module.exports = {
   type,
   isUrl,
