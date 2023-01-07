@@ -1,6 +1,6 @@
 {
     "name": "common-coding-tools",
-    "version": "2.0.23",
+    "version": "2.0.24",
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
     "main": "./src/index.js",
@@ -40,14 +40,13 @@
     ],
     "license": "ISC",
     "exports": {
-        ".":"./src/index.js",
-        "./array":"./array/index.js",
+        ".": "./src/index.js",
+        "./array": "./array/index.js",
         "./string": "./string/index.js",
         "./validation": "./validation/index.js",
         "./types": "./types/index.js",
-        "./hashing":"./hashing/index.js",
+        "./hashing": "./hashing/index.js",
         "./random": "./random/index.js"
-            
     },
     "devDependencies": {
         "typescript": "^4.9.4"
