@@ -4,6 +4,7 @@
     "description": "A common code module for use in multiple npm packages",
     "repository": "PaneruVipin/common-coding-tools",
     "main": "./src/index.js",
+    "types":"./src/index.d.ts",
     "files": [
         "src",
         "array",
