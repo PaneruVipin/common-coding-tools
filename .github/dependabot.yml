@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "path/to/common-coding-tools"
+    schedule:
+      interval: "weekly"
