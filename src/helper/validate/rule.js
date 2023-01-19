@@ -55,27 +55,61 @@ var validation = (body, rules) => {
   }
 };
 
-const required = (value, feild) => {
+const errorRule = {
+  "{{rule}}": "rule",
+  "{{feild}}": "feild",
+  "{{ruleValue}}": "ruleValue",
+  "{{firstRuleValue}}": "firstRuleValue",
+  "{{secondRuleValue}}": "secondRuleValue",
+};
+
+const errorCreater = (message, dep) => {
+  const message1 = message
+    .replace(/\s*\{\s*/g, " {")
+    .replace(/\s*\}\s*/g, "} ")
+    .replace(/{\s/g, "{")
+    .replace(/\s}/g, "}");
+  let cleanedmassage = message1;
+  Object.keys(errorRule).forEach((e, i) => {
+    if (cleanedmassage.includes(e)) {
+      const newMessage = cleanedmassage.replace(e, dep?.[errorRule?.[e]]);
+      cleanedmassage = newMessage;
+      if (newMessage.includes(e)) {
+        cleanedmassage = errorCreater(newMessage, dep);
+      }
+    }
+  });
+  return cleanedmassage;
+};
+
+const required = (value, feild, ruleValue, error) => {
   const data = {};
   if (value) {
     data.value = value;
   } else {
     data.error = {
       feild,
-      message: `${feild} is require feild`,
+      message:
+        errorCreater(error, { feild, rule: "required", ruleValue }) ||
+        `${feild} is require feild`,
     };
   }
   return data;
 };
 
-const string = (value, feild) => {
+const string = (value, feild, ruleValue, error) => {
   const data = {};
   if (typeof value == "string") {
     data.value = value;
   } else if (!value) {
     return;
   } else {
-    data.error = { feild, message: `${feild} must be a string` };
+    data.error = {
+      feild,
+      message:
+        errorCreater(error, { feild, rule: "string", ruleValue }) ||
+        `${feild} must be a string`,
+    };
   }
   return data;
 };
@@ -164,31 +198,41 @@ const array = (value, feild, newRuleValue) => {
   return data;
 };
 
-const boolean = (value, feild) => {
+const boolean = (value, feild, ruleValue, error) => {
   const data = {};
   if (typeof value == "boolean") {
     data.value = value;
   } else if (!value) {
     return;
   } else {
-    data.error = { feild, message: `${feild} must be a boolean` };
+    data.error = {
+      feild,
+      message:
+        errorCreater(error, { feild, rule: "boolean", ruleValue }) ||
+        `${feild} must be a boolean`,
+    };
   }
   return data;
 };
 
-const number = (value, feild) => {
+const number = (value, feild, ruleValue, error) => {
   const data = {};
   if (typeof value == "number") {
     data.value = value;
   } else if (!value) {
     return;
   } else {
-    data.error = { feild, message: `${feild} must be a number` };
+    data.error = {
+      feild,
+      message:
+        errorCreater(error, { feild, rule: "number", ruleValue }) ||
+        `${feild} must be a number`,
+    };
   }
   return data;
 };
 
-const email = (value, feild) => {
+const email = (value, feild, ruleValue, error) => {
   const data = {};
   if (
     value
@@ -201,12 +245,17 @@ const email = (value, feild) => {
   } else if (!value) {
     return;
   } else {
-    data.error = { feild, message: `${feild} must be a valid email` };
+    data.error = {
+      feild,
+      message:
+        errorCreater(error, { feild, rule: "email", ruleValue }) ||
+        `${feild} must be a valid email`,
+    };
   }
   return data;
 };
 
-const url = (value, feild) => {
+const url = (value, feild, ruleValue, error) => {
   const isValidUrl = (urlString) => {
     var urlPattern = new RegExp(
       "^(https?:\\/\\/)?" + // validate protocol
@@ -225,12 +274,17 @@ const url = (value, feild) => {
   } else if (!value) {
     return;
   } else {
-    data.error = { feild, message: `${feild} must be a valid URL` };
+    data.error = {
+      feild,
+      message:
+        errorCreater(error, { feild, rule: "URL", ruleValue }) ||
+        `${feild} must be a valid URL`,
+    };
   }
   return data;
 };
 
-const minLength = (value, feild, ruleValue) => {
+const minLength = (value, feild, ruleValue, error) => {
   const data = {};
   if (value?.length >= +ruleValue) {
     data.value = value;
@@ -239,13 +293,15 @@ const minLength = (value, feild, ruleValue) => {
   } else {
     data.error = {
       feild,
-      message: `${feild} length is to short, minimium length is ${ruleValue}`,
+      message:
+        errorCreater(error, { feild, rule: "minimium Length", ruleValue }) ||
+        `${feild} length is to short, minimium length is ${ruleValue}`,
     };
   }
   return data;
 };
 
-const maxLength = (value, feild, ruleValue) => {
+const maxLength = (value, feild, ruleValue, error) => {
   const data = {};
   if (value?.length <= +ruleValue) {
     data.value = value;
@@ -254,18 +310,22 @@ const maxLength = (value, feild, ruleValue) => {
   } else {
     data.error = {
       feild,
-      message: `${feild} length is to long, maximium length is ${ruleValue}`,
+      message:
+        errorCreater(error, { feild, rule: "maximium length", ruleValue }) ||
+        `${feild} length is to long, maximium length is ${ruleValue}`,
     };
   }
   return data;
 };
 
-const min = (value, feild, ruleValue) => {
+const min = (value, feild, ruleValue, error) => {
   const data = {};
   if (+value < +ruleValue) {
     data.error = {
       feild,
-      message: `${feild} value is to short, minimium value is ${ruleValue}`,
+      message:
+        errorCreater(error, { feild, rule: "minium value", ruleValue }) ||
+        `${feild} value is to short, minimium value is ${ruleValue}`,
     };
   } else if (!value) {
     return;
@@ -275,12 +335,14 @@ const min = (value, feild, ruleValue) => {
   return data;
 };
 
-const max = (value, feild, ruleValue) => {
+const max = (value, feild, ruleValue, error) => {
   const data = {};
   if (+value > +ruleValue) {
     data.error = {
       feild,
-      message: `${feild} value is to long, maximium value is ${ruleValue}`,
+      message:
+        errorCreater(error, { feild, rule: "maximium value", ruleValue }) ||
+        `${feild} value is to long, maximium value is ${ruleValue}`,
     };
   } else if (!value) {
     return;
@@ -290,7 +352,7 @@ const max = (value, feild, ruleValue) => {
   return data;
 };
 
-const range = (value, feild, ruleValue) => {
+const range = (value, feild, ruleValue, error) => {
   const data = {};
   const ranges = ruleValue.split("-");
   if (+value >= +ranges?.[0] && +value <= +ranges?.[1]) {
@@ -300,7 +362,15 @@ const range = (value, feild, ruleValue) => {
   } else {
     data.error = {
       feild,
-      message: `${feild} may be in the range of ${ranges?.[0]} to ${ranges?.[1]}`,
+      message:
+        errorCreater(error, {
+          feild,
+          rule: "range",
+          ruleValue: ranges?.[0],
+          firstRuleValue: ranges?.[0],
+          secondRuleValue: ranges?.[1],
+        }) ||
+        `${feild} may be in the range of ${ranges?.[0]} to ${ranges?.[1]}`,
     };
   }
   return data;
@@ -388,7 +458,7 @@ const removeAllWhiteSpace = (value) => {
   return data;
 };
 
-const oneOfThese = (value, feild, ruleValue) => {
+const oneOfThese = (value, feild, ruleValue, error) => {
   const data = {};
   let newRuleValue;
   try {
@@ -404,7 +474,9 @@ const oneOfThese = (value, feild, ruleValue) => {
   } else {
     data.error = {
       feild,
-      message: `${feild} may be one of these ${newRuleValue?.join(" or ")}`,
+      message:
+        errorCreater(error, { feild, rule: "one of these", ruleValue }) ||
+        `${feild} may be one of these ${newRuleValue?.join(" or ")}`,
     };
   }
   return data;
@@ -433,5 +505,5 @@ var ruleHandlers = {
   number,
   string,
 };
-
+exports.errorCreater=errorCreater
 module.exports = ruleHandlers;

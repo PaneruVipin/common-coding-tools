@@ -1,6 +1,10 @@
 const ruleHandlers = require("../src/helper/validate/rule");
+const { errorCreater } = require("../src/helper/validate/rule");
+var validation = (body, rules, customErrors) => {
+  return ValidationForCustomRules(ruleHandlers, body, rules, customErrors);
+};
 
-var validation = (body, rules) => {
+var ValidationForCustomRules = (ruleHandlers, body, rules, customErrors) => {
   const data = {};
   const errors = [];
   const ruleKeys = Object.keys(rules);
@@ -33,13 +37,19 @@ var validation = (body, rules) => {
         const newData = ruleHandlers?.[rule](
           returnedValue || body?.[key],
           key,
-          ruleValue
+          ruleValue,
+          customErrors?.[`${key}.${rule}`] || customErrors?.[rule]
         );
         if (newData?.error) errors.push(newData?.error);
         returnedValue = newData?.value;
       } else {
         // console.log(body?.[key], key, ruleValue)
-        const newData = ruleHandlers?.[rule](body?.[key], key, ruleValue);
+        const newData = ruleHandlers?.[rule](
+          body?.[key],
+          key,
+          ruleValue,
+          customErrors?.[`${key}.${rule}`] || customErrors?.[rule]
+        );
         if (newData?.error) errors.push(newData?.error);
         returnedValue = newData?.value;
       }
@@ -56,6 +66,9 @@ var validation = (body, rules) => {
 var schema = (data) => {
   return JSON.stringify(data);
 };
+
+exports.ValidationForCustomRules = ValidationForCustomRules;
 exports.validation = validation;
 exports.schema = schema;
+exports.errorCreator = errorCreater;
 module.exports = { validation, schema };
