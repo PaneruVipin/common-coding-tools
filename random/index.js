@@ -20,6 +20,7 @@ const randomData = (arr) => {
   const randomIndex = randomNumber(arr?.length - 1, 0);
   return arr?.[randomIndex];
 };
+
 exports.randomNumber = randomNumber;
 exports.randomData = randomData;
 exports.randomString = randomString;

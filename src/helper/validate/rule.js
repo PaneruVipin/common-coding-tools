@@ -63,7 +63,7 @@ const errorRule = {
   "{{secondRuleValue}}": "secondRuleValue",
 };
 
-const errorCreater = (message, dep) => {
+const errorCreator = (message, dep) => {
   const message1 = message
     .replace(/\s*\{\s*/g, " {")
     .replace(/\s*\}\s*/g, "} ")
@@ -75,7 +75,7 @@ const errorCreater = (message, dep) => {
       const newMessage = cleanedmassage.replace(e, dep?.[errorRule?.[e]]);
       cleanedmassage = newMessage;
       if (newMessage.includes(e)) {
-        cleanedmassage = errorCreater(newMessage, dep);
+        cleanedmassage = errorCreator(newMessage, dep);
       }
     }
   });
@@ -90,7 +90,7 @@ const required = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "required", ruleValue }) ||
+        errorCreator(error, { feild, rule: "required", ruleValue }) ||
         `${feild} is require feild`,
     };
   }
@@ -107,7 +107,7 @@ const string = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "string", ruleValue }) ||
+        errorCreator(error, { feild, rule: "string", ruleValue }) ||
         `${feild} must be a string`,
     };
   }
@@ -208,7 +208,7 @@ const boolean = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "boolean", ruleValue }) ||
+        errorCreator(error, { feild, rule: "boolean", ruleValue }) ||
         `${feild} must be a boolean`,
     };
   }
@@ -225,7 +225,7 @@ const number = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "number", ruleValue }) ||
+        errorCreator(error, { feild, rule: "number", ruleValue }) ||
         `${feild} must be a number`,
     };
   }
@@ -248,7 +248,7 @@ const email = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "email", ruleValue }) ||
+        errorCreator(error, { feild, rule: "email", ruleValue }) ||
         `${feild} must be a valid email`,
     };
   }
@@ -277,7 +277,7 @@ const url = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "URL", ruleValue }) ||
+        errorCreator(error, { feild, rule: "URL", ruleValue }) ||
         `${feild} must be a valid URL`,
     };
   }
@@ -294,7 +294,7 @@ const minLength = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "minimium Length", ruleValue }) ||
+        errorCreator(error, { feild, rule: "minimium Length", ruleValue }) ||
         `${feild} length is to short, minimium length is ${ruleValue}`,
     };
   }
@@ -311,7 +311,7 @@ const maxLength = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "maximium length", ruleValue }) ||
+        errorCreator(error, { feild, rule: "maximium length", ruleValue }) ||
         `${feild} length is to long, maximium length is ${ruleValue}`,
     };
   }
@@ -324,7 +324,7 @@ const min = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "minium value", ruleValue }) ||
+        errorCreator(error, { feild, rule: "minium value", ruleValue }) ||
         `${feild} value is to short, minimium value is ${ruleValue}`,
     };
   } else if (!value) {
@@ -341,7 +341,7 @@ const max = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "maximium value", ruleValue }) ||
+        errorCreator(error, { feild, rule: "maximium value", ruleValue }) ||
         `${feild} value is to long, maximium value is ${ruleValue}`,
     };
   } else if (!value) {
@@ -363,7 +363,7 @@ const range = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, {
+        errorCreator(error, {
           feild,
           rule: "range",
           ruleValue: ranges?.[0],
@@ -475,7 +475,7 @@ const oneOfThese = (value, feild, ruleValue, error) => {
     data.error = {
       feild,
       message:
-        errorCreater(error, { feild, rule: "one of these", ruleValue }) ||
+        errorCreator(error, { feild, rule: "one of these", ruleValue }) ||
         `${feild} may be one of these ${newRuleValue?.join(" or ")}`,
     };
   }
@@ -505,5 +505,5 @@ var ruleHandlers = {
   number,
   string,
 };
-exports.errorCreater=errorCreater
+exports.errorCreator=errorCreator
 module.exports = ruleHandlers;
