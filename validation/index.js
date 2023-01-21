@@ -1,5 +1,4 @@
-const ruleHandlers = require("../src/helper/validate/rule");
-// const { errorCreator } = require("../src/helper/validate/rule");
+const { ruleHandlers, errorCreator } = require("../src/helper/validate/rule");
 
 var validation = (body, rules, customErrors) => {
   return ValidationForCustomRules(ruleHandlers, body, rules, customErrors);
@@ -71,10 +70,13 @@ var schema = (data) => {
 exports.ValidationForCustomRules = ValidationForCustomRules;
 exports.validation = validation;
 exports.schema = schema;
-exports.errorCreator = ruleHandlers.errorCreator;
+exports.errorCreator = errorCreator;
+exports.ruleHandlers = ruleHandlers;
 module.exports = {
   validation,
   schema,
   ValidationForCustomRules,
-  errorCreator: ruleHandlers.errorCreator,
+  errorCreator,
+  ruleHandlers,
 };
+console.log(ruleHandlers,errorCreator)

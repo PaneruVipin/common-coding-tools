@@ -504,6 +504,7 @@ var ruleHandlers = {
   email,
   number,
   string,
+
 };
 exports.errorCreator=errorCreator
-module.exports = ruleHandlers;
+module.exports = {ruleHandlers,errorCreator};
