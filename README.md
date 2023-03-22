@@ -11,7 +11,7 @@ npm install common-coding-tools
 
 
 ### Usage
-We have divided the first common-coding-tools into 4 pages based on their different categories so that it is easy to use.
+We have divided the first common-coding-tools into 4 pages based on their different categories so that it is easy to use. 
 
 - [Data Fitlerization](https://github.com/PaneruVipin/common-coding-tools/blob/main/docs/ARRAY.md#common-coding-toolsarray)    Methods: `search` `descending` `ascending` `arrayToObject` `ObjectToArray`
 - [Data Validation](https://github.com/PaneruVipin/common-coding-tools/blob/main/docs/VALIDATE.md#common-coding-toolsvalidation)  Methods: `validation` `schema` 
