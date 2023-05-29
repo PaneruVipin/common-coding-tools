@@ -4,7 +4,6 @@ While working with JavaScript and JavaScript Framework, many hooks have to be ma
 so they are all present here in the same library, so use them and avoid time and code repetition. 
 
 
-
 ## Getting Started
 ```javascript
 npm install common-coding-tools
