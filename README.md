@@ -1,4 +1,3 @@
-
 # common-coding-tools
 
 While working with JavaScript and JavaScript Framework, many hooks have to be made which are common, \
