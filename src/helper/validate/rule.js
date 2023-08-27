@@ -70,7 +70,7 @@ const errorCreator = (message, dep) => {
     .replace(/{\s/g, "{")
     .replace(/\s}/g, "}");
   let cleanedmassage = message1;
-  Object.keys(errorRule).forEach((e, i) => {
+  Object.keys(errorRule)?.forEach((e, i) => {
     if (cleanedmassage.includes(e)) {
       const newMessage = cleanedmassage.replace(e, dep?.[errorRule?.[e]]);
       cleanedmassage = newMessage;
