@@ -84,7 +84,7 @@ const errorCreator = (message, dep) => {
 
 const required = (value, feild, ruleValue, error) => {
   const data = {};
-  if (value) {
+  if (value || value === 0) {
     data.value = value;
   } else {
     data.error = {
@@ -504,7 +504,6 @@ var ruleHandlers = {
   email,
   number,
   string,
-
 };
-exports.errorCreator=errorCreator
-module.exports = {ruleHandlers,errorCreator};
+exports.errorCreator = errorCreator;
+module.exports = { ruleHandlers, errorCreator };
